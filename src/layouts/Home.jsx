@@ -10,7 +10,7 @@ const Home = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [breadcrumbItems, setBreadcrumbItems] = useState([
     { title: "Home" },
-    { title: "Dashboard" },
+    { title: "Dashboard " },
   ]);
   const {
     token: { colorBgContainer },
