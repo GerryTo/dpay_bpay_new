@@ -1,6 +1,6 @@
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import Sider from "antd/es/layout/Sider";
-import { Content, Footer, Header } from "antd/es/layout/layout";
+import { Content, Header } from "antd/es/layout/layout";
 import React, { useState } from "react";
 import { mockdataRoutes } from "../routes";
 import Title from "antd/es/typography/Title";
@@ -37,7 +37,7 @@ const Home = () => {
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <Title level={3}>LaLa Admin</Title>
+        <Title level={3}>DPAY</Title>
       </Header>
       <Layout
         style={{
@@ -122,13 +122,6 @@ const Home = () => {
               </Routes>
             </div>
           </Content>
-          <Footer
-            style={{
-              textAlign: "center",
-            }}
-          >
-            Ant Design ©2023 Created by Ant UED
-          </Footer>
         </Layout>
       </Layout>
     </Layout>
