@@ -51,7 +51,9 @@ const Home = () => {
           onCollapse={(value) => setCollapsed(value)}
         >
           <div className="demo-logo-vertical" />
-          <Menu mode="inline" defaultSelectedKeys={["A"]}>
+          <Menu mode="inline" defaultSelectedKeys={["A"]} style={{
+        width: 200,
+      }}>
             {mockdataRoutes.map((dt) => (
               <React.Fragment key={dt.key}>
                 {dt.children && dt.children.length > 0 && (
