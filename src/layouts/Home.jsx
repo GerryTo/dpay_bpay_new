@@ -37,7 +37,7 @@ const Home = () => {
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <Title level={3}>DPAY</Title>
+        <Title level={2}>DPAY</Title>
       </Header>
       <Layout
         style={{
