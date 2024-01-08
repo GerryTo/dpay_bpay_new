@@ -33,6 +33,9 @@
 import Dashboard from './layouts/dashboard'
 import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons'
 import MyBankDataList from './layouts/mybank-datalist'
+import MyBankUpdate from './layouts/mybank-update'
+import TransactionById from './layouts/transaction-by-id'
+import TransactionByAccount from './layouts/transaction-by-account'
 
 export const mockdataRoutes = [
   {
@@ -74,8 +77,8 @@ export const mockdataRoutes = [
       {
         label: 'Transaction By Id',
         key: 'B5',
-        element: '',
-        link: '/'
+        element: <TransactionById />,
+        link: '/transaction-by-id'
       },
       {
         label: 'Withdraw Check',
@@ -141,8 +144,8 @@ export const mockdataRoutes = [
       {
         label: 'Update MyBank',
         key: 'C3',
-        element: '',
-        link: '/'
+        element: <MyBankUpdate />,
+        link: '/bank-update'
       },
       {
         label: 'MyBank Balance',
@@ -442,8 +445,8 @@ export const mockdataRoutes = [
       {
         label: 'Transaction By Id',
         key: 'J1',
-        element: '',
-        link: '/'
+        element: <TransactionById />,
+        link: '/transaction-by-id'
       },
       {
         label: 'Transaction By Id Backup',
@@ -466,8 +469,8 @@ export const mockdataRoutes = [
       {
         label: 'Transaction By Account',
         key: 'J5',
-        element: '',
-        link: '/'
+        element: <TransactionByAccount />,
+        link: '/transaction-by-account'
       },
       {
         label: 'Transaction By Account History',
