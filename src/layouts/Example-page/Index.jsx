@@ -1,5 +1,5 @@
 import { Table } from "antd";
-import ExampleDataTable from "./ExampleDataTable";
+import ExampleDataTable from "./data/ExampleDataTable";
 
 const ExamplePage = () => {
   let { column, records } = ExampleDataTable();
