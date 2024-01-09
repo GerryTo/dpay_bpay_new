@@ -1,7 +1,9 @@
 import { Select, Table, Typography, DatePicker } from 'antd'
 import React from 'react'
 import { Button, Popconfirm, Space, Upload } from 'antd'
-import transactionbyaccountTableData from './data/transactionbyaccountTableData'
+import transactionbyaccountTableData, {
+  transactionbyaccounthistoryTableData
+} from './data/transactionbyaccounthistoryTableData'
 
 const { RangePicker } = DatePicker
 const handleChange = value => {
@@ -11,9 +13,9 @@ const onSearch = (value, _e, info) => console.log(info?.source, value)
 const onChange = e => {
   console.log(`checked = ${e.target.checked}`)
 }
-const TransactionByAccount = () => {
+const TransactionByAccountHistory = () => {
   const { Title } = Typography
-  let { columns, records } = transactionbyaccountTableData()
+  let { columns, records } = transactionbyaccounthistoryTableData()
   console.log(columns, records)
   return (
     <>
@@ -47,8 +49,6 @@ const TransactionByAccount = () => {
             }
           ]}
         />
-        <Button type="primary">Adjustment</Button>
-        <Button type="primary">Adjustment Merchant</Button>
       </Space>
       <Table dataSource={records} columns={columns} scroll={{ x: 10 }} />
       <div>
@@ -83,4 +83,4 @@ const TransactionByAccount = () => {
   )
 }
 
-export default TransactionByAccount
+export default TransactionByAccountHistory

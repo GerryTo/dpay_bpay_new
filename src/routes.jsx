@@ -36,6 +36,14 @@ import MyBankDataList from './layouts/mybank-datalist'
 import MyBankUpdate from './layouts/mybank-update'
 import TransactionById from './layouts/transaction-by-id'
 import TransactionByAccount from './layouts/transaction-by-account'
+import TransactionByAccountHistory from './layouts/transaction-by-account-history'
+import MyBankBalance from './layouts/mybank-balance'
+import MyBankLimit from './layouts/mybank-limit'
+import ReportMonthly from './layouts/report-monthly'
+import ReportDaily from './layouts/report-daily'
+import BalanceDifference from './layouts/report-balancedifference'
+import AccountReportDaily from './layouts/report-accountreportdaily'
+import AccountReportSMS from './layouts/report-accountreportsms'
 
 export const mockdataRoutes = [
   {
@@ -150,14 +158,14 @@ export const mockdataRoutes = [
       {
         label: 'MyBank Balance',
         key: 'C4',
-        element: '',
-        link: '/'
+        element: <MyBankBalance />,
+        link: '/mybank-balance'
       },
       {
         label: 'MyBank Limit',
         key: 'C5',
-        element: '',
-        link: '/'
+        element: <MyBankLimit />,
+        link: '/mybank-limit'
       }
     ]
   },
@@ -169,14 +177,14 @@ export const mockdataRoutes = [
       {
         label: 'Report Monthly',
         key: 'D1',
-        element: '',
-        link: '/'
+        element: <ReportMonthly />,
+        link: '/report-monthly'
       },
       {
         label: 'Report Daily',
         key: 'D2',
-        element: '',
-        link: '/'
+        element: <ReportDaily />,
+        link: '/report-daily'
       },
       {
         label: 'Report Daily New',
@@ -187,14 +195,14 @@ export const mockdataRoutes = [
       {
         label: 'Balance Difference',
         key: 'D4',
-        element: '',
-        link: '/'
+        element: <BalanceDifference />,
+        link: '/report-balancedifference'
       },
       {
         label: 'Account Report By Transaction Daily',
         key: 'D5',
-        element: '',
-        link: '/'
+        element: <AccountReportDaily />,
+        link: '/report-accountreportdaily'
       },
       {
         label: 'Account Report By Transaction Daily New',
@@ -211,8 +219,8 @@ export const mockdataRoutes = [
       {
         label: 'Account Report By SMS Daily',
         key: 'D8',
-        element: '',
-        link: '/'
+        element: <AccountReportSMS />,
+        link: '/report-accountreportsms'
       },
       {
         label: 'Download Report',
@@ -475,8 +483,8 @@ export const mockdataRoutes = [
       {
         label: 'Transaction By Account History',
         key: 'J6',
-        element: '',
-        link: '/'
+        element: <TransactionByAccountHistory />,
+        link: '/transaction-by-account-history'
       },
       {
         label: 'Transaction Resend Callback',

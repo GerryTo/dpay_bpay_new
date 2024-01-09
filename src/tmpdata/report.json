@@ -1,0 +1,15 @@
+[
+    {
+        "merchant_code": "1",
+        "month": "Jan",
+        "date": "23",
+        "opening_balance":"0",
+        "total_deposit":"1000",
+        "total_withdraw":"5000",
+        "bropay_fee":"50",
+        "commission":"10",
+        "total_topup":"500",
+        "total_settlement":"200",
+        "closing_balance":"300"
+      }
+]

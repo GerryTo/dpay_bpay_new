@@ -1,13 +1,6 @@
 import React from 'react'
-
+import TransactionByAccountHistory from '../../../tmpdata/transactionbyaccounthistory.json'
 export const transactionbyaccountTableData = () => {
-  const data = [
-    {
-      key: '1',
-      futuretrx: 'test',
-      date: '2024-10-10'
-    }
-  ]
   let tmpDataColumns = [
     {
       dataIndex: 'futuretrx',
@@ -125,7 +118,7 @@ export const transactionbyaccountTableData = () => {
   ]
   return {
     columns: tmpDataColumns,
-    records: data
+    records: TransactionByAccountHistory
   }
 }
 
