@@ -1,9 +1,7 @@
 import { Select, Table, Typography, DatePicker } from 'antd'
 import React from 'react'
 import { Button, Popconfirm, Space, Upload } from 'antd'
-import transactionbyaccountTableData, {
-  transactionbyaccounthistoryTableData
-} from './data/transactionbyaccounthistoryTableData'
+import dataTransactionByAccountHistoryTableData from './data/datatransactionbyaccounthistoryTableData'
 
 const { RangePicker } = DatePicker
 const handleChange = value => {
@@ -15,7 +13,7 @@ const onChange = e => {
 }
 const TransactionByAccountHistory = () => {
   const { Title } = Typography
-  let { columns, records } = transactionbyaccounthistoryTableData()
+  let { columns, records } = dataTransactionByAccountHistoryTableData()
   console.log(columns, records)
   return (
     <>

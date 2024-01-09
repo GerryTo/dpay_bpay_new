@@ -46,6 +46,8 @@ import AccountReportDaily from './layouts/report-accountreportdaily'
 import AccountReportSMS from './layouts/report-accountreportsms'
 import Download from './layouts/report-download'
 import Blacklist from './layouts/report-blacklist'
+import Account from './layouts/user-account'
+import AgentGroup from './layouts/agent-group'
 
 export const mockdataRoutes = [
   {
@@ -246,8 +248,8 @@ export const mockdataRoutes = [
       {
         label: 'Accounts',
         key: 'E1',
-        element: '',
-        link: '/'
+        element: <Account />,
+        link: '/user-account'
       }
     ]
   },
@@ -259,8 +261,8 @@ export const mockdataRoutes = [
       {
         label: 'Agent Group',
         key: 'F1',
-        element: '',
-        link: '/'
+        element: <AgentGroup />,
+        link: '/agent-group'
       },
       {
         label: 'Agent Comm. Settlement',
