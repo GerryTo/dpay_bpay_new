@@ -44,6 +44,8 @@ import ReportDaily from './layouts/report-daily'
 import BalanceDifference from './layouts/report-balancedifference'
 import AccountReportDaily from './layouts/report-accountreportdaily'
 import AccountReportSMS from './layouts/report-accountreportsms'
+import Download from './layouts/report-download'
+import Blacklist from './layouts/report-blacklist'
 
 export const mockdataRoutes = [
   {
@@ -225,14 +227,14 @@ export const mockdataRoutes = [
       {
         label: 'Download Report',
         key: 'D9',
-        element: '',
-        link: '/'
+        element: <Download />,
+        link: '/report-download'
       },
       {
         label: 'Blacklist Report',
         key: 'D10',
-        element: '',
-        link: '/'
+        element: <Blacklist />,
+        link: '/report-blacklist'
       }
     ]
   },
