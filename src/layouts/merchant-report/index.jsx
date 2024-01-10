@@ -1,9 +1,9 @@
 import React from 'react'
 import { DatePicker, Select, Space, Table } from 'antd'
-import dataAgentReportTransactionDataTable from './data/dataAgentReportTransactionDataTable'
+import dataMerchantReport from './data/dataMerchantReport'
 
-const AgentReportTransaction = () => {
-  let { column, records, isLoading } = dataAgentReportTransactionDataTable()
+const MerchantReport = () => {
+  let { column, records, isLoading } = dataMerchantReport()
   const { RangePicker } = DatePicker
   const handleChange = value => {
     console.log(`selected ${value}`)
@@ -11,47 +11,46 @@ const AgentReportTransaction = () => {
   return (
     <>
       <Space direction="horizontal" size={'large'}>
-        <RangePicker />
         <Select
-          defaultValue="bank1"
+          defaultValue="daily"
           style={{
             width: 120
           }}
           onChange={handleChange}
           options={[
             {
-              value: 'bank1',
-              label: 'Bank 1'
+              value: 'daily',
+              label: 'Daily'
             },
             {
-              value: 'bank2',
-              label: 'Bank 2'
+              value: 'weekly',
+              label: 'Weekly'
             },
             {
-              value: 'bank3',
-              label: 'Bank 3'
+              value: 'monthly',
+              label: 'Monthly'
             }
           ]}
         />
 
         <Select
-          defaultValue="bank1"
+          defaultValue="deposit"
           style={{
             width: 120
           }}
           onChange={handleChange}
           options={[
             {
-              value: 'bank1',
-              label: 'Bank 1'
+              value: 'deposit',
+              label: 'Deposit'
             },
             {
-              value: 'bank2',
-              label: 'Bank 2'
+              value: 'withdraw',
+              label: 'Withdraw'
             },
             {
-              value: 'bank3',
-              label: 'Bank 3'
+              value: 'adjustment',
+              label: 'Adjustment'
             }
           ]}
         />
@@ -61,4 +60,4 @@ const AgentReportTransaction = () => {
   )
 }
 
-export default AgentReportTransaction
+export default MerchantReport

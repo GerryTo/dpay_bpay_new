@@ -1,0 +1,15 @@
+[
+    {
+        "alias": "a",
+        "account_no": "1",
+        "account_name": "kyle",
+        "bank":"bank1",
+        "login":"login1",
+        "type":"type1",
+        "active":"y",
+        "locked":"n",
+        "last_used":"1d",
+        "agent_commission":"10",
+        "group_id":"z"
+      }
+]

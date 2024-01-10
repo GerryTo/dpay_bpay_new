@@ -53,6 +53,10 @@ import AgentCommissionSettlement from './layouts/agent-commissionsettlement'
 import AgentCreditBalance from './layouts/agent-creditbalance'
 import AgentCreditRequest from './layouts/agent-creditrequest'
 import AgentReportTransaction from './layouts/agent-reporttransaction'
+import MerchantMaster from './layouts/merchant-master'
+import MerchantBankAccount from './layouts/merchant-bankaccount'
+import MerchantTransaction from './layouts/merchant-transaction'
+import MerchantReport from './layouts/merchant-report'
 
 export const mockdataRoutes = [
   {
@@ -309,32 +313,32 @@ export const mockdataRoutes = [
       {
         label: 'Merchant Master',
         key: 'G1',
-        element: '',
-        link: '/'
+        element: <MerchantMaster />,
+        link: '/merchant-master'
       },
       {
         label: 'Merchant Bank ACC',
         key: 'G2',
-        element: '',
-        link: '/'
+        element: <MerchantBankAccount />,
+        link: '/merchant-bankaccount'
       },
       {
         label: 'Merchant Transaction',
         key: 'G3',
-        element: '',
-        link: '/'
+        element: <MerchantTransaction />,
+        link: '/merchant-transaction'
       },
       {
         label: 'Merchant Transaction History',
         key: 'G4',
-        element: '',
-        link: '/'
+        element: <MerchantTransaction />,
+        link: '/merchant-transaction'
       },
       {
         label: 'Report Merchant',
         key: 'G5',
-        element: '',
-        link: '/'
+        element: <MerchantReport />,
+        link: '/merchant-report'
       }
     ]
   },
