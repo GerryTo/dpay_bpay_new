@@ -88,6 +88,7 @@ import TransactionAdjustmentMerchant from './layouts/transaction-adjustmentmerch
 import SettingUpdateGroup from './layouts/setting-updategroup'
 import SettingSystem from './layouts/setting-system'
 import SettingControlPanel from './layouts/setting-controlpanel'
+import SimulationAvailableAccount from './layouts/simulation-availableaccount'
 
 export const mockdataRoutes = [
   {
@@ -825,8 +826,21 @@ export const mockdataRoutes = [
     ]
   },
   {
-    label: 'Logout',
+    label: 'Simulation',
     key: 'O',
+    icon: <PieChartOutlined />,
+    children: [
+      {
+        label: 'Available Account Selection Simulation',
+        key: 'O1',
+        element: <SimulationAvailableAccount />,
+        link: '/simulation-availableaccount'
+      }
+    ]
+  },
+  {
+    label: 'Logout',
+    key: 'P',
     icon: <PieChartOutlined />,
     element: '',
     link: '/'
