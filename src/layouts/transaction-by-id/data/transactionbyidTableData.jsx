@@ -1,9 +1,9 @@
 import React from 'react'
-import TransactionByAccountHistory from '../../../tmpdata/transactionbyaccounthistory.json'
+import TransactionByAccountHistory from '../../../tmpdata/db.json'
 export const transactionbyidTableData = () => {
   let tmpDataColumns = [
     {
-      dataIndex: 'futuretrx',
+      dataIndex: 'future_trx',
       title: 'Future Trx ID'
     },
     {
@@ -11,108 +11,108 @@ export const transactionbyidTableData = () => {
       title: 'Date'
     },
     {
-      dataIndex: '',
+      dataIndex: 'merchant_code',
       title: 'Merchant Code'
     },
     {
-      dataIndex: '',
+      dataIndex: 'status',
       title: 'Status'
     },
     {
-      dataIndex: '',
+      dataIndex: 'customer_code',
       title: 'Customer Code'
     },
     {
-      dataIndex: '',
+      dataIndex: 'bank',
       title: 'Bank'
     },
     {
-      dataIndex: '',
+      dataIndex: 'debit',
       title: 'Debit'
     },
     {
-      dataIndex: '',
+      dataIndex: 'credit',
       title: 'Credit'
     },
     {
-      dataIndex: '',
+      dataIndex: 'trans_type',
       title: 'Trans Type'
     },
     {
-      dataIndex: '',
+      dataIndex: 'status',
       title: 'Status'
     },
     {
-      dataIndex: '',
+      dataIndex: 'callback_status',
       title: 'Callback Status'
     },
     {
-      dataIndex: '',
+      dataIndex: 'fee',
       width: '25%',
       title: 'Fee'
     },
     {
-      dataIndex: '',
+      dataIndex: 'notes',
       title: 'Notes'
     },
     {
-      dataIndex: '',
+      dataIndex: 'notes_2',
       title: 'Notes 2'
     },
     {
-      dataIndex: '',
+      dataIndex: 'notes_3',
       title: 'Notes 3'
     },
     {
-      dataIndex: '',
+      dataIndex: 'sms_phone',
       title: 'Sms Phone'
     },
     {
-      dataIndex: '',
+      dataIndex: 'sms_agent',
       title: 'Sms Agent'
     },
     {
-      dataIndex: '',
+      dataIndex: 'trans_id',
       title: 'Trans ID'
     },
     {
-      dataIndex: '',
+      dataIndex: 'alias',
       title: 'Alias'
     },
     {
-      dataIndex: '',
+      dataIndex: 'acc_source',
       title: 'Acc Source'
     },
     {
-      dataIndex: '',
+      dataIndex: 'acc_source_name',
       title: 'Acc Source Name'
     },
     {
-      dataIndex: '',
+      dataIndex: 'acc_dest',
       title: 'Acc Dest'
     },
     {
-      dataIndex: '',
+      dataIndex: 'acc_dest_name',
       title: 'Acc Dest Name'
     },
     {
-      dataIndex: '',
+      dataIndex: 'server_name',
       title: 'Server Name'
     },
     {
-      dataIndex: '',
+      dataIndex: 'server_url',
       title: 'Server URL'
     },
     {
-      dataIndex: '',
+      dataIndex: 'receipt_id',
       title: 'Receipt ID'
     },
     {
-      dataIndex: '',
+      dataIndex: 'memo',
       title: 'Memo'
     },
     {
-      dataIndex: '',
+      dataIndex: 'action',
       title: 'Action'
     }
   ]

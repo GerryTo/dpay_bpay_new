@@ -71,6 +71,20 @@ import WithdrawAssignment from './layouts/withdraw-assignment'
 import WithdrawAssignmentPending from './layouts/withdraw-assignmentpending'
 import WithdrawAssignmentBulk from './layouts/withdraw-assignmentbulk'
 import WithdrawQueue from './layouts/withdraw-queue'
+import TransactionResendCallback from './layouts/transaction-resendcallback'
+import TransactionCompletedToday from './layouts/transaction-completedtoday'
+import TransactionSuspected from './layouts/transaction-suspected'
+import TransactionSubmitted from './layouts/transaction-submitted'
+import TransactionPending from './layouts/transaction-pending'
+import TransactionFlagM from './layouts/transaction-flagm'
+import TransactionNotMatchSameday from './layouts/transaction-notmatchsameday'
+import TransactionResubmit from './layouts/transaction-resubmit'
+import TransactionLog from './layouts/transaction-log'
+import TransactionUpdate from './layouts/transaction-update'
+import TransactionUpdateLog from './layouts/transaction-updatelog'
+import TransactionResubmitAutoMatching from './layouts/transaction-resubmitautomatching'
+import TransactionAdjustment from './layouts/transaction-adjustment'
+import TransactionAdjustmentMerchant from './layouts/transaction-adjustmentmerchant'
 
 export const mockdataRoutes = [
   {
@@ -504,20 +518,20 @@ export const mockdataRoutes = [
       {
         label: 'Transaction Resend Callback',
         key: 'J7',
-        element: '',
-        link: '/'
+        element: <TransactionResendCallback />,
+        link: '/transaction-resendcallback'
       },
       {
         label: 'Transaction Resend Callback 502',
         key: 'J8',
-        element: '',
-        link: '/'
+        element: <TransactionResendCallback />,
+        link: '/transaction-resendcallback'
       },
       {
         label: 'Transaction Completed Today',
         key: 'J9',
-        element: '',
-        link: '/'
+        element: <TransactionCompletedToday />,
+        link: '/transaction-completedtoday'
       },
       {
         label: 'Transaction By Id NA',
@@ -534,80 +548,80 @@ export const mockdataRoutes = [
       {
         label: 'Suspected Transaction',
         key: 'J12',
-        element: '',
-        link: '/'
+        element: <TransactionSuspected />,
+        link: '/transaction-suspected'
       },
       {
         label: 'Submitted Transaction',
         key: 'J13',
-        element: '',
-        link: '/'
+        element: <TransactionSubmitted />,
+        link: '/transaction-submitted'
       },
       {
         label: 'Transaction Pending',
         key: 'J14',
-        element: '',
-        link: '/'
+        element: <TransactionPending />,
+        link: '/transaction-pending'
       },
       {
         label: 'Transaction Flag By M',
         key: 'J15',
-        element: '',
-        link: '/'
+        element: <TransactionFlagM />,
+        link: '/transaction-flagm'
       },
       {
         label: 'Transaction By Not Match Sameday',
         key: 'J16',
-        element: '',
-        link: '/'
+        element: <TransactionNotMatchSameday />,
+        link: '/transaction-notmatchsameday'
       },
       {
         label: 'Resubmit Transaction',
         key: 'J17',
-        element: '',
-        link: '/'
+        element: <TransactionResubmit />,
+        link: '/transaction-resubmit'
       },
       {
         label: 'Resubmit Transaction Log',
         key: 'J18',
-        element: '',
-        link: '/'
+        element: <TransactionLog />,
+        link: '/transaction-log'
       },
       {
         label: 'Resubmit Auto Matching',
         key: 'J19',
-        element: '',
-        link: '/'
+        element: <TransactionResubmitAutoMatching />,
+        link: '/transaction-resubmitautomatching'
       },
       {
         label: 'Update Transaction',
         key: 'J20',
-        element: '',
-        link: '/'
+        element: <TransactionUpdate />,
+        link: '/transaction-update'
       },
       {
         label: 'Update Transaction New',
         key: 'J21',
-        element: '',
-        link: '/'
+        element: <TransactionUpdate />,
+        link: '/transaction_update'
       },
       {
         label: 'Update Transaction Log',
         key: 'J22',
-        element: '',
-        link: '/'
+        element: <TransactionUpdateLog />,
+        link: '/transaction-updatelog'
       },
       {
         label: 'Adjustment',
         key: 'J23',
-        element: '',
-        link: '/'
+        element: <TransactionAdjustment />,
+        link: '/transaction-adjustment'
       },
       {
         label: 'Adjustment Merchant',
         key: 'J24',
-        element: '',
-        link: '/'
+        element: <TransactionAdjustmentMerchant />,
+        link: '/transaction-adjustmentmerchant'
       }
     ]
   },
