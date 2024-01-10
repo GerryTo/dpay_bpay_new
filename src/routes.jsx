@@ -61,6 +61,16 @@ import DepositPending from './layouts/deposit-pending'
 import DepositQueue from './layouts/deposit-queue'
 import DepositQueueUnmatched from './layouts/deposit-queueumatched'
 import DepositQueueAlert from './layouts/deposit-queuealert'
+import WithdrawList from './layouts/withdraw-list'
+import WithdrawCheck from './layouts/withdraw-check'
+import WithdrawFilter from './layouts/withdraw-filter'
+import WithdrawFilterBulk from './layouts/withdraw-filterbulk'
+import WithdrawSetting from './layouts/withdraw-setting'
+import WithdrawTransaction from './layouts/withdraw-transaction'
+import WithdrawAssignment from './layouts/withdraw-assignment'
+import WithdrawAssignmentPending from './layouts/withdraw-assignmentpending'
+import WithdrawAssignmentBulk from './layouts/withdraw-assignmentbulk'
+import WithdrawQueue from './layouts/withdraw-queue'
 
 export const mockdataRoutes = [
   {
@@ -391,68 +401,62 @@ export const mockdataRoutes = [
       {
         label: 'Withdraw List',
         key: 'I1',
-        element: '',
-        link: '/'
+        element: <WithdrawList />,
+        link: '/withdraw-list'
       },
       {
         label: 'Withdraw Check',
         key: 'I2',
-        element: '',
-        link: '/'
+        element: <WithdrawCheck />,
+        link: '/withdraw-check'
       },
       {
         label: 'Withdraw Check Filter',
         key: 'I3',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Withdraw Check Filter New',
-        key: 'I4',
-        element: '',
-        link: '/'
+        element: <WithdrawFilter />,
+        link: '/withdraw-filter'
       },
       {
         label: 'Withdraw Check Filter Bulk',
-        key: 'I5',
-        element: '',
-        link: '/'
+        key: 'I4',
+        element: <WithdrawFilterBulk />,
+        link: '/withdraw-filterbulk'
       },
       {
         label: 'Setting',
-        key: 'I6',
-        element: '',
-        link: '/'
+        key: 'I5',
+        element: <WithdrawSetting />,
+        link: '/withdraw-setting'
       },
       {
         label: 'Merchant Transaction Withdrawal',
-        key: 'I7',
-        element: '',
-        link: '/'
+        key: 'I6',
+        element: <WithdrawTransaction />,
+        link: '/withdraw-transaction'
       },
       {
         label: 'Assignment',
-        key: 'I8',
-        element: '',
-        link: '/'
+        key: 'I7',
+        element: <WithdrawAssignment />,
+        link: '/withdraw-assignment'
       },
       {
         label: 'Assignment Bulk',
-        key: 'I9',
-        element: '',
-        link: '/'
+        key: 'I8',
+        element: <WithdrawAssignmentBulk />,
+        link: '/withdraw-assignmentbulk'
       },
       {
         label: 'Assignment Pending',
-        key: 'I10',
-        element: '',
-        link: '/'
+        key: 'I9',
+        element: <WithdrawAssignmentPending />,
+        link: '/withdraw-assignmentpending'
       },
       {
         label: 'Withdraw Queue',
-        key: 'I11',
-        element: '',
-        link: '/'
+        key: 'I10',
+        element: <WithdrawQueue />,
+        link: '/withdraw-queue'
       }
     ]
   },

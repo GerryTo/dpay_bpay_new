@@ -26,6 +26,26 @@
         "flag":"id",
         "account_no":"1",
         "account_name":"name",
-        "pending_transaction":"0" 
+        "pending_transaction":"0",
+        "future_id":"2",
+        "system_timestamp":"14:00",
+        "merchant_id":"1",
+        "client_timestamp":"15:00",
+        "original_timestamp":"16:00",
+        "dest_bank_account":"dest_bank",
+        "dest_account_name":"qwer",
+        "source_bank_account":"012",
+        "source_bank":"bank2",
+        "source_bank_account_name":"kyy",
+        "transaction_id":"1" ,
+        "bank_code":"nagad",
+        "is_enabled":"y",
+        "agent_assign":"agenttest",
+        "status_assign":"pending",
+        "assignment_timestamps":"2024-01-01 06:00",
+        "pending_time":"30 minutes",
+        "parent_future_id":"-01",
+        "queue_id":"q1",
+        "type":"type1"
       }
 ]
