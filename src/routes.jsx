@@ -57,6 +57,10 @@ import MerchantMaster from './layouts/merchant-master'
 import MerchantBankAccount from './layouts/merchant-bankaccount'
 import MerchantTransaction from './layouts/merchant-transaction'
 import MerchantReport from './layouts/merchant-report'
+import DepositPending from './layouts/deposit-pending'
+import DepositQueue from './layouts/deposit-queue'
+import DepositQueueUnmatched from './layouts/deposit-queueumatched'
+import DepositQueueAlert from './layouts/deposit-queuealert'
 
 export const mockdataRoutes = [
   {
@@ -350,38 +354,32 @@ export const mockdataRoutes = [
       {
         label: 'Merchant Transaction Deposit',
         key: 'H1',
-        element: '',
-        link: '/'
+        element: <MerchantTransaction />,
+        link: '/merchant-transaction'
       },
       {
         label: 'Deposit Pending',
         key: 'H2',
-        element: '',
-        link: '/'
+        element: <DepositPending />,
+        link: '/deposit-pending'
       },
       {
         label: 'Deposit Queue Today',
         key: 'H3',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Deposit Queue Today BDT',
-        key: 'H4',
-        element: '',
-        link: '/'
+        element: <DepositQueue />,
+        link: '/deposit-queue'
       },
       {
         label: 'Deposit Queue Unmatched By Date',
-        key: 'H5',
-        element: '',
-        link: '/'
+        key: 'H4',
+        element: <DepositQueueUnmatched />,
+        link: '/deposit-queueunmatched'
       },
       {
         label: 'Deposit Queue Alert',
-        key: 'H6',
-        element: '',
-        link: '/'
+        key: 'H5',
+        element: <DepositQueueAlert />,
+        link: '/deposit-queuealert'
       }
     ]
   },
