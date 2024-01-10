@@ -48,6 +48,11 @@ import Download from './layouts/report-download'
 import Blacklist from './layouts/report-blacklist'
 import Account from './layouts/user-account'
 import AgentGroup from './layouts/agent-group'
+import AgentCommission from './layouts/agent-commission'
+import AgentCommissionSettlement from './layouts/agent-commissionsettlement'
+import AgentCreditBalance from './layouts/agent-creditbalance'
+import AgentCreditRequest from './layouts/agent-creditrequest'
+import AgentReportTransaction from './layouts/agent-reporttransaction'
 
 export const mockdataRoutes = [
   {
@@ -265,34 +270,34 @@ export const mockdataRoutes = [
         link: '/agent-group'
       },
       {
-        label: 'Agent Comm. Settlement',
+        label: 'Agent Commission',
         key: 'F2',
-        element: '',
-        link: '/'
+        element: <AgentCommission />,
+        link: '/agent-commission'
+      },
+      {
+        label: 'Agent Comm. Settlement',
+        key: 'F3',
+        element: <AgentCommissionSettlement />,
+        link: '/agent-commissionsettlement'
       },
       {
         label: 'Agent Credit',
-        key: 'F3',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Agent Credit Monitoring',
         key: 'F4',
-        element: '',
-        link: '/'
+        element: <AgentCreditBalance />,
+        link: '/agent-creditbalance'
       },
       {
         label: 'Agent Credit Request',
         key: 'F5',
-        element: '',
-        link: '/'
+        element: <AgentCreditRequest />,
+        link: '/agent-creditrequest'
       },
       {
         label: 'Agent Report Transaction',
         key: 'F6',
-        element: '',
-        link: '/'
+        element: <AgentReportTransaction />,
+        link: '/agent-reporttransaction'
       }
     ]
   },

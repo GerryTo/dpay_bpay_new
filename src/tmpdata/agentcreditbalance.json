@@ -1,0 +1,12 @@
+[
+    {
+        "agent":"kyle",
+        "name":"abc",
+        "alias":"kyle",
+        "active":"y",
+        "nagad":"1000",
+        "rocket":"2000",
+        "bkash":"3000",
+        "action":"adjust in,adjust out"   
+      }
+]

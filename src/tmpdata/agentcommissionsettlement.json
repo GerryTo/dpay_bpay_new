@@ -1,0 +1,14 @@
+[
+    {
+        "settlement_id": "1",
+        "date": "2024-01-01",
+        "agent":"kyle",
+        "bank":"bank1",
+        "account_source":"acc1",
+        "account_target":"acc2",
+        "amount":"1000",
+        "status":"ok",
+        "notes":"note",
+        "action":"edit"   
+      }
+]

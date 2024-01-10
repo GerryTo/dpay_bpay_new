@@ -1,0 +1,9 @@
+[
+    {
+        "agent": "agent1",
+        "name": "kyle",
+        "alias":"kyle",
+        "active":"y",
+        "commission":"1000"
+      }
+]
