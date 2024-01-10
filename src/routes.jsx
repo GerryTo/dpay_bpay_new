@@ -85,6 +85,9 @@ import TransactionUpdateLog from './layouts/transaction-updatelog'
 import TransactionResubmitAutoMatching from './layouts/transaction-resubmitautomatching'
 import TransactionAdjustment from './layouts/transaction-adjustment'
 import TransactionAdjustmentMerchant from './layouts/transaction-adjustmentmerchant'
+import SettingUpdateGroup from './layouts/setting-updategroup'
+import SettingSystem from './layouts/setting-system'
+import SettingControlPanel from './layouts/setting-controlpanel'
 
 export const mockdataRoutes = [
   {
@@ -804,20 +807,20 @@ export const mockdataRoutes = [
       {
         label: 'Update Group',
         key: 'N1',
-        element: '',
-        link: '/'
+        element: <SettingUpdateGroup />,
+        link: '/setting-updategroup'
       },
       {
         label: 'System Setting',
         key: 'N2',
-        element: '',
-        link: '/'
+        element: <SettingSystem />,
+        link: '/setting-system'
       },
       {
         label: 'CP Journal',
         key: 'N3',
-        element: '',
-        link: '/'
+        element: <SettingControlPanel />,
+        link: '/setting-controlpanel'
       }
     ]
   },

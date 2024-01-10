@@ -68,6 +68,8 @@
         "trx_id":"trx1",
         "user":"user1",
         "phone_number":"0853",
-        "agent_account_no":"agent123"
+        "agent_account_no":"agent123",
+        "description":"desc",
+        "ip":"192.168.10.1"
       }
 ]
