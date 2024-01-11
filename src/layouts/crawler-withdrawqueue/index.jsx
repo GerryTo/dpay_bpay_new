@@ -1,0 +1,26 @@
+import { DatePicker, Select, Space, Table } from 'antd'
+import React from 'react'
+import dataCrawlerWithdrawQueueTableData from './data/dataCrawlerWithdrawQueueTableData'
+const onChange = (date, dateString) => {
+  console.log(date, dateString)
+}
+const handleChange = value => {
+  console.log(`selected ${value}`)
+}
+const { RangePicker } = DatePicker
+const CrawlerWithdrawQueue = () => {
+  let { column, records, isLoading } = dataCrawlerWithdrawQueueTableData()
+  return (
+    <>
+      <Space direction="vertical">
+        <Space>
+          <RangePicker />
+        </Space>
+
+        <Table dataSource={records} columns={column} loading={isLoading} />
+      </Space>
+    </>
+  )
+}
+
+export default CrawlerWithdrawQueue

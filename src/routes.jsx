@@ -105,6 +105,11 @@ import SmsLastAckActive from './layouts/sms-lastackactive'
 import SmsReport from './layouts/sms-report'
 import SmsPhoneWhitelist from './layouts/sms-phonewhitelist'
 import SmsServiceCenterWhitelist from './layouts/sms-servicecenterwhitelist'
+import CrawlerStatus from './layouts/crawler-status'
+import CrawlerErrorLog from './layouts/crawler-errorlog'
+import CrawlerWithdrawQueue from './layouts/crawler-withdrawqueue'
+import CrawlerAutomationFailed from './layouts/crawler-automationfailed'
+import CrawlerAutomationWithdrawal from './layouts/crawler-automationwithdrawal'
 
 export const mockdataRoutes = [
   {
@@ -768,38 +773,38 @@ export const mockdataRoutes = [
       {
         label: 'Crawler List',
         key: 'L1',
-        element: '',
-        link: '/'
+        element: <SmsAppium />,
+        link: '/sms-appium'
       },
       {
         label: 'Account Status',
         key: 'L2',
-        element: '',
-        link: '/'
+        element: <CrawlerStatus />,
+        link: '/crawler-status'
       },
       {
         label: 'Error Log',
         key: 'L3',
-        element: '',
-        link: '/'
+        element: <CrawlerErrorLog />,
+        link: '/crawler-errorlog'
       },
       {
         label: 'Withdraw Queue',
         key: 'L4',
-        element: '',
-        link: '/'
+        element: <CrawlerWithdrawQueue />,
+        link: '/crawler-withdrawqueue'
       },
       {
         label: 'Automation Failed Suspected',
         key: 'L5',
-        element: '',
-        link: '/'
+        element: <CrawlerAutomationFailed />,
+        link: '/crawler-automationfailed'
       },
       {
         label: 'Automation Withdraw History',
         key: 'L6',
-        element: '',
-        link: '/'
+        element: <CrawlerAutomationWithdrawal />,
+        link: '/crawler-automationwithdrawal'
       }
     ]
   },
