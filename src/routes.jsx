@@ -34,7 +34,21 @@ import Dashboard from './layouts/dashboard'
 import {
   DesktopOutlined,
   PieChartOutlined,
-  DoubleLeftOutlined
+  DoubleLeftOutlined,
+  FundOutlined,
+  BoxPlotOutlined,
+  AuditOutlined,
+  ContactsOutlined,
+  ContainerOutlined,
+  RiseOutlined,
+  FallOutlined,
+  LineChartOutlined,
+  AliwangwangOutlined,
+  DingdingOutlined,
+  ApartmentOutlined,
+  KeyOutlined,
+  LaptopOutlined,
+  PoweroffOutlined
 } from '@ant-design/icons'
 import MyBankDataList from './layouts/mybank-datalist'
 import MyBankUpdate from './layouts/mybank-update'
@@ -207,7 +221,7 @@ export const mockdataRoutes = [
   {
     label: 'MyBank ACC',
     key: 'C',
-    icon: <DesktopOutlined />,
+    icon: <FundOutlined />,
     children: [
       {
         label: 'Data List',
@@ -244,7 +258,7 @@ export const mockdataRoutes = [
   {
     label: 'Report',
     key: 'D',
-    icon: <DesktopOutlined />,
+    icon: <BoxPlotOutlined />,
     children: [
       {
         label: 'Report Monthly',
@@ -311,7 +325,7 @@ export const mockdataRoutes = [
   {
     label: 'User Management',
     key: 'E',
-    icon: <DesktopOutlined />,
+    icon: <AuditOutlined />,
     children: [
       {
         label: 'Accounts',
@@ -324,7 +338,7 @@ export const mockdataRoutes = [
   {
     label: 'Agents',
     key: 'F',
-    icon: <DesktopOutlined />,
+    icon: <ContactsOutlined />,
     children: [
       {
         label: 'Agent Group',
@@ -367,7 +381,7 @@ export const mockdataRoutes = [
   {
     label: 'Merchant',
     key: 'G',
-    icon: <DesktopOutlined />,
+    icon: <ContainerOutlined />,
     children: [
       {
         label: 'Merchant Master',
@@ -404,7 +418,7 @@ export const mockdataRoutes = [
   {
     label: 'Deposits',
     key: 'H',
-    icon: <DesktopOutlined />,
+    icon: <RiseOutlined />,
     children: [
       {
         label: 'Merchant Transaction Deposit',
@@ -441,7 +455,7 @@ export const mockdataRoutes = [
   {
     label: 'Withdrawal',
     key: 'I',
-    icon: <DesktopOutlined />,
+    icon: <FallOutlined />,
     children: [
       {
         label: 'Withdraw List',
@@ -508,7 +522,7 @@ export const mockdataRoutes = [
   {
     label: 'Transaction',
     key: 'J',
-    icon: <DesktopOutlined />,
+    icon: <LineChartOutlined />,
     children: [
       {
         label: 'Transaction By Id',
@@ -659,7 +673,7 @@ export const mockdataRoutes = [
   {
     label: 'SMS',
     key: 'K',
-    icon: <DesktopOutlined />,
+    icon: <AliwangwangOutlined />,
     children: [
       {
         label: 'SMS Log By Id',
@@ -774,7 +788,7 @@ export const mockdataRoutes = [
   {
     label: 'Crawler',
     key: 'L',
-    icon: <DesktopOutlined />,
+    icon: <DingdingOutlined />,
     children: [
       {
         label: 'Crawler List',
@@ -817,7 +831,7 @@ export const mockdataRoutes = [
   {
     label: 'Settlement',
     key: 'M',
-    icon: <DesktopOutlined />,
+    icon: <ApartmentOutlined />,
     children: [
       {
         label: 'Settlement',
@@ -836,7 +850,7 @@ export const mockdataRoutes = [
   {
     label: 'Setting',
     key: 'N',
-    icon: <DesktopOutlined />,
+    icon: <KeyOutlined />,
     children: [
       {
         label: 'Update Group',
@@ -861,7 +875,7 @@ export const mockdataRoutes = [
   {
     label: 'Simulation',
     key: 'O',
-    icon: <PieChartOutlined />,
+    icon: <LaptopOutlined />,
     children: [
       {
         label: 'Available Account Selection Simulation',
@@ -874,7 +888,7 @@ export const mockdataRoutes = [
   {
     label: 'Logout',
     key: 'P',
-    icon: <PieChartOutlined />,
+    icon: <PoweroffOutlined />,
     element: '',
     link: '/'
   }
