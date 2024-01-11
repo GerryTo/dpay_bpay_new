@@ -89,6 +89,22 @@ import SettingUpdateGroup from './layouts/setting-updategroup'
 import SettingSystem from './layouts/setting-system'
 import SettingControlPanel from './layouts/setting-controlpanel'
 import SimulationAvailableAccount from './layouts/simulation-availableaccount'
+import SmsLogId from './layouts/sms-logid'
+import SmsCriteriaNotMatchingId from './layouts/sms-criterianotmatchingid'
+import SmsLog from './layouts/sms-log'
+import SmsLogBalanceDifferent from './layouts/sms-logbalancedifferent'
+import SmsLogCustomerPhone from './layouts/sms-logcustomerphone'
+import SmsAppium from './layouts/sms-appium'
+import SmsSuspected from './layouts/sms-suspected'
+import SmsSuspectedCustomer from './layouts/sms-suspectedcustomer'
+import SmsFailedMatch from './layouts/sms-failedmatch'
+import SmsDuplicate from './layouts/sms-duplicate'
+import SmsLogHistory from './layouts/sms-loghistory'
+import SmsLastAck from './layouts/sms-lastack'
+import SmsLastAckActive from './layouts/sms-lastackactive'
+import SmsReport from './layouts/sms-report'
+import SmsPhoneWhitelist from './layouts/sms-phonewhitelist'
+import SmsServiceCenterWhitelist from './layouts/sms-servicecenterwhitelist'
 
 export const mockdataRoutes = [
   {
@@ -637,20 +653,20 @@ export const mockdataRoutes = [
       {
         label: 'SMS Log By Id',
         key: 'K1',
-        element: '',
-        link: '/'
+        element: <SmsLogId />,
+        link: '/sms-logid'
       },
       {
         label: 'SMS Criteria not Matching By Id ',
         key: 'K2',
-        element: '',
-        link: '/'
+        element: <SmsCriteriaNotMatchingId />,
+        link: '/sms-criterianotmatchingid'
       },
       {
         label: 'SMS Log',
         key: 'K3',
-        element: '',
-        link: '/'
+        element: <SmsLog />,
+        link: '/sms-log'
       },
       {
         label: 'SMS Log Backup',
@@ -661,80 +677,86 @@ export const mockdataRoutes = [
       {
         label: 'SMS Log By Balance Diff',
         key: 'K5',
-        element: '',
-        link: '/'
+        element: <SmsLogBalanceDifferent />,
+        link: '/sms-logbalancedifferent'
       },
       {
         label: 'SMS Log By Customer Phone',
         key: 'K6',
-        element: '',
-        link: '/'
+        element: <SmsLogCustomerPhone />,
+        link: '/sms-logcustomerphone'
+      },
+      {
+        label: 'Appium List',
+        key: 'K7',
+        element: <SmsAppium />,
+        link: '/sms-appium'
       },
       {
         label: 'Suspected SMS',
-        key: 'K7',
-        element: '',
-        link: '/'
+        key: 'K8',
+        element: <SmsSuspected />,
+        link: '/sms-suspected'
       },
       {
         label: 'Suspected Customer',
-        key: 'K8',
-        element: '',
-        link: '/'
+        key: 'K9',
+        element: <SmsSuspectedCustomer />,
+        link: '/sms-suspectedcustomer'
       },
       {
         label: 'SMS Failed Match',
-        key: 'K9',
-        element: '',
-        link: '/'
+        key: 'K10',
+        element: <SmsFailedMatch />,
+        link: '/sms-failedmatch'
       },
       {
         label: 'SMS Failed Match by Not Match Sameday',
-        key: 'K10',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Duplicate SMS',
         key: 'K11',
         element: '',
         link: '/'
       },
       {
-        label: 'SMS Log History',
+        label: 'Duplicate SMS',
         key: 'K12',
-        element: '',
-        link: '/'
+        element: <SmsDuplicate />,
+        link: '/sms-duplicate'
+      },
+      {
+        label: 'SMS Log History',
+        key: 'K13',
+        element: <SmsLogHistory />,
+        link: '/sms-loghistory'
       },
       {
         label: 'SMS Last ACK',
-        key: 'K13',
-        element: '',
-        link: '/'
+        key: 'K14',
+        element: <SmsLastAck />,
+        link: '/sms-lastack'
       },
       {
         label: 'SMS Last ACK Active',
-        key: 'K14',
-        element: '',
-        link: '/'
+        key: 'K15',
+        element: <SmsLastAckActive />,
+        link: '/sms-lastackactive'
       },
       {
         label: 'Report SMS',
-        key: 'K15',
-        element: '',
-        link: '/'
+        key: 'K16',
+        element: <SmsReport />,
+        link: '/sms-report'
       },
       {
         label: 'Phone Whitelist',
-        key: 'K16',
-        element: '',
-        link: '/'
+        key: 'K17',
+        element: <SmsPhoneWhitelist />,
+        link: '/sms-phonewhitelist'
       },
       {
         label: 'Service Center Whitelist',
-        key: 'K17',
-        element: '',
-        link: '/'
+        key: 'K18',
+        element: <SmsServiceCenterWhitelist />,
+        link: '/sms-servicecenterwhitelist'
       }
     ]
   },
