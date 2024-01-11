@@ -26,7 +26,12 @@ const nav = [
 const MyBankUpdate = () => {
   return (
     <>
-      <Tabs defaultActiveKey="1" items={nav} onChange={onChange} />
+      <Tabs
+        defaultActiveKey="1"
+        items={nav}
+        onChange={onChange}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

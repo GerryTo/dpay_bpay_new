@@ -7,7 +7,12 @@ const Account = () => {
   return (
     <>
       <Button type="primary">Add New</Button>
-      <Table dataSource={records} columns={columns} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={columns}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

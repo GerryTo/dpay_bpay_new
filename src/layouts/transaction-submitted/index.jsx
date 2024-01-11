@@ -15,7 +15,12 @@ const TransactionSubmitted = () => {
   let { column, records, isLoading } = dataTransactionSubmittedTableData()
   return (
     <>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

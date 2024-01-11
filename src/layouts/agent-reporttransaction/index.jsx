@@ -56,7 +56,12 @@ const AgentReportTransaction = () => {
           ]}
         />
       </Space>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

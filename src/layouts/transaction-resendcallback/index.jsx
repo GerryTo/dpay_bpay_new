@@ -27,7 +27,12 @@ const TransactionResendCallback = () => {
         <DatePicker onChange={onChange} />
         <Button type="primary">Resend Callback</Button>
       </Space>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

@@ -38,7 +38,12 @@ const MerchantTransaction = () => {
           ]}
         />
       </Space>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
       <div>
         <table style={{ width: '100%' }}>
           <tr>

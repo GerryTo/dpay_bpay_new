@@ -31,7 +31,11 @@
 // },
 
 import Dashboard from './layouts/dashboard'
-import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons'
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  DoubleLeftOutlined
+} from '@ant-design/icons'
 import MyBankDataList from './layouts/mybank-datalist'
 import MyBankUpdate from './layouts/mybank-update'
 import TransactionById from './layouts/transaction-by-id'
@@ -124,7 +128,7 @@ export const mockdataRoutes = [
   {
     label: 'Quick Menu',
     key: 'B',
-    icon: <DesktopOutlined />,
+    icon: <DoubleLeftOutlined />,
     children: [
       {
         label: 'MyBank ACC',

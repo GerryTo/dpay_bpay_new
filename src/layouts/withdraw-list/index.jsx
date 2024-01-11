@@ -15,7 +15,12 @@ const WithdrawList = () => {
         <Checkbox>History</Checkbox>
         <Switch checkedChildren="On" unCheckedChildren="Off" />
       </Space>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

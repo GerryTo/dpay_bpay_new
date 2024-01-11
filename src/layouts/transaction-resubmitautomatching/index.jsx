@@ -22,7 +22,12 @@ const TransactionResubmitAutoMatching = () => {
       <Space direction="horizontal" size={'large'}>
         <Button type="primary">Submit</Button>
       </Space>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

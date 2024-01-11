@@ -15,7 +15,12 @@ const AccountReportSMS = () => {
           <DatePicker onChange={onChange} picker="date" />
         </Space>
 
-        <Table dataSource={records} columns={column} loading={isLoading} />
+        <Table
+          dataSource={records}
+          columns={column}
+          loading={isLoading}
+          scroll={{ x: 10 }}
+        />
       </Space>
     </>
   )

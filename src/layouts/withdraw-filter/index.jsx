@@ -8,7 +8,6 @@ import {
   Table,
   TimePicker
 } from 'antd'
-import dataWithdrawFilterDataTable from './data/dataWithdrawFilterTableData'
 import dataWithdrawFilterTableData from './data/dataWithdrawFilterTableData'
 
 const WithdrawFilter = () => {
@@ -45,7 +44,12 @@ const WithdrawFilter = () => {
         />
         <Checkbox>History</Checkbox>
       </Space>
-      <Table dataSource={records} columns={column} loading={isLoading} />
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }
