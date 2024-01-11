@@ -1,6 +1,6 @@
 import React from 'react'
 import a from '../../../tmpdata/db.json'
-export const dataSmsLogTableData = () => {
+export const dataSmsLogBalanceDifferentTableData = () => {
   let tmpDataColumn = [
     {
       title: 'Timestamp',
@@ -110,4 +110,4 @@ export const dataSmsLogTableData = () => {
   }
 }
 
-export default dataSmsLogTableData
+export default dataSmsLogBalanceDifferentTableData

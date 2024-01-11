@@ -1,6 +1,6 @@
 import React from 'react'
 import a from '../../../tmpdata/db.json'
-const dataTransactionFlagMTableData = () => {
+const dataTransactionNotMatchSamedayTableData = () => {
   let tmpDataColumn = [
     {
       title: 'Future Trx ID',
@@ -147,4 +147,4 @@ const dataTransactionFlagMTableData = () => {
   return { column: tmpDataColumn, records: a }
 }
 
-export default dataTransactionFlagMTableData
+export default dataTransactionNotMatchSamedayTableData

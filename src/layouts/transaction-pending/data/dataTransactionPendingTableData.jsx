@@ -1,6 +1,6 @@
 import React from 'react'
 import a from '../../../tmpdata/db.json'
-const dataTransactionSubmittedTableData = () => {
+const dataTransactionPendingTableData = () => {
   let tmpDataColumn = [
     {
       title: 'Future Trx ID',
@@ -132,4 +132,4 @@ const dataTransactionSubmittedTableData = () => {
   return { column: tmpDataColumn, records: a }
 }
 
-export default dataTransactionSubmittedTableData
+export default dataTransactionPendingTableData

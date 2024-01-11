@@ -1,6 +1,6 @@
 import React from 'react'
 import a from '../../../tmpdata/db.json'
-const dataWithdrawFilterDataTable = () => {
+const dataWithdrawFilterTableData = () => {
   let tmpDataColumn = [
     {
       title: 'Future ID',
@@ -56,4 +56,4 @@ const dataWithdrawFilterDataTable = () => {
   return { column: tmpDataColumn, records: a }
 }
 
-export default dataWithdrawFilterDataTable
+export default dataWithdrawFilterTableData
