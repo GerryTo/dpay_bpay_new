@@ -129,26 +129,26 @@ export const mockdataRoutes = [
       {
         label: 'MyBank ACC',
         key: 'B1',
-        element: '',
-        link: '/'
+        element: <MyBankDataList />,
+        link: '/mybank-datalist'
       },
       {
         label: 'SMS Log by Id',
         key: 'B2',
-        element: '',
-        link: '/'
+        element: <SmsLogId />,
+        link: '/sms-logid'
       },
       {
         label: 'SMS Log',
         key: 'B3',
-        element: '',
-        link: '/'
+        element: <SmsLog />,
+        link: '/sms-log'
       },
       {
         label: 'SMS Last ACK',
         key: 'B4',
-        element: '',
-        link: '/'
+        element: <SmsLastAck />,
+        link: '/sms-lastack'
       },
       {
         label: 'Transaction By Id',
@@ -159,44 +159,44 @@ export const mockdataRoutes = [
       {
         label: 'Withdraw Check',
         key: 'B6',
-        element: '',
-        link: '/'
+        element: <WithdrawCheck />,
+        link: '/withdraw-check'
       },
       {
         label: 'Withdraw Check Filter',
         key: 'B7',
-        element: '',
-        link: '/'
+        element: <WithdrawFilter />,
+        link: '/withdraw-filter'
       },
       {
         label: 'Withdraw Check Filter Bulk',
         key: 'B8',
-        element: '',
-        link: '/'
+        element: <WithdrawFilterBulk />,
+        link: '/withdraw-filterbulk'
       },
       {
         label: 'Withdraw Check Filter New',
         key: 'B9',
-        element: '',
-        link: '/'
+        element: <WithdrawFilter />,
+        link: '/withdraw-filter'
       },
       {
         label: 'Assignment Bulk',
         key: 'B10',
-        element: '',
-        link: '/'
+        element: <WithdrawAssignmentBulk />,
+        link: '/withdraw-assignmentbulk'
       },
       {
         label: 'Resubmit Transaction',
         key: 'B11',
-        element: '',
-        link: '/'
+        element: <TransactionResubmit />,
+        link: '/transaction-resubmit'
       },
       {
         label: 'Update MyBank',
         key: 'B12',
-        element: '',
-        link: '/'
+        element: <MyBankUpdate />,
+        link: '/mybank-update'
       }
     ]
   },
