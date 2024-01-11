@@ -11,16 +11,14 @@ const CrawlerStatus = () => {
   let { column, records, isLoading } = dataCrawlerStatusTableData()
   return (
     <>
-      <Space direction="vertical">
-        <Space></Space>
+      <Space></Space>
 
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
-      </Space>
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

@@ -11,19 +11,17 @@ const SmsLogId = () => {
   let { column, records, isLoading } = dataSmsLogIdTableData()
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <Input placeholder="Input Trx ID Here" />
-          <Checkbox>History</Checkbox>
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <Input placeholder="Input Trx ID Here" />
+        <Checkbox>History</Checkbox>
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

@@ -12,18 +12,16 @@ const SmsSuspectedCustomer = () => {
   const { RangePicker } = DatePicker
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <DatePicker />
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <DatePicker />
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

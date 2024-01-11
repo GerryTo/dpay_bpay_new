@@ -12,18 +12,16 @@ const SmsAppium = () => {
   const { RangePicker } = DatePicker
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <RangePicker />
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <RangePicker />
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

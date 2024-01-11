@@ -12,40 +12,38 @@ const SmsSuspected = () => {
   const { RangePicker } = DatePicker
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <RangePicker />
-          <Select
-            defaultValue="1"
-            style={{
-              width: 200
-            }}
-            onChange={handleChange}
-            options={[
-              {
-                value: '1',
-                label: 'Agent 1'
-              },
-              {
-                value: '2',
-                label: 'Agent 2'
-              },
-              {
-                value: '3',
-                label: 'Agent 3'
-              }
-            ]}
-          />
-          <Checkbox>History</Checkbox>
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
+      <Space>
+        <RangePicker />
+        <Select
+          defaultValue="1"
+          style={{
+            width: 200
+          }}
+          onChange={handleChange}
+          options={[
+            {
+              value: '1',
+              label: 'Agent 1'
+            },
+            {
+              value: '2',
+              label: 'Agent 2'
+            },
+            {
+              value: '3',
+              label: 'Agent 3'
+            }
+          ]}
         />
+        <Checkbox>History</Checkbox>
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

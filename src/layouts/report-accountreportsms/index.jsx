@@ -10,18 +10,16 @@ const AccountReportSMS = () => {
   let { column, records, isLoading } = dataAccountReportSMS()
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <DatePicker onChange={onChange} picker="date" />
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <DatePicker onChange={onChange} picker="date" />
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

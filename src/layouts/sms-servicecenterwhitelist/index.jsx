@@ -12,18 +12,16 @@ const SmsServiceCenterWhitelist = () => {
   let { column, records, isLoading } = dataSmsServiceCenterWhitelistTableData()
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <Button type="primary">Add New</Button>
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <Button type="primary">Add New</Button>
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

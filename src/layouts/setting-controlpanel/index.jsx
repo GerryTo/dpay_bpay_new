@@ -11,18 +11,16 @@ const SettingControlPanel = () => {
   let { column, records, isLoading } = dataSettingControlPanelTableData()
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <DatePicker onChange={onChange} />
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <DatePicker onChange={onChange} />
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

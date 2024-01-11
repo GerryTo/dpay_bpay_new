@@ -12,38 +12,36 @@ const SmsLogBalanceDifferent = () => {
   const { RangePicker } = DatePicker
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <Select
-            defaultValue="1"
-            style={{
-              width: 200
-            }}
-            onChange={handleChange}
-            options={[
-              {
-                value: '1',
-                label: '<= 5.000>'
-              },
-              {
-                value: '2',
-                label: '5.001 - 10.000'
-              },
-              {
-                value: '3',
-                label: '> 10.000'
-              }
-            ]}
-          />
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
+      <Space>
+        <Select
+          defaultValue="1"
+          style={{
+            width: 200
+          }}
+          onChange={handleChange}
+          options={[
+            {
+              value: '1',
+              label: '<= 5.000>'
+            },
+            {
+              value: '2',
+              label: '5.001 - 10.000'
+            },
+            {
+              value: '3',
+              label: '> 10.000'
+            }
+          ]}
         />
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }

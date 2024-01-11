@@ -13,19 +13,17 @@ const SmsFailedMatch = () => {
 
   return (
     <>
-      <Space direction="vertical">
-        <Space>
-          <RangePicker />
-          <Checkbox>History</Checkbox>
-        </Space>
-
-        <Table
-          dataSource={records}
-          columns={column}
-          loading={isLoading}
-          scroll={{ x: 10 }}
-        />
+      <Space>
+        <RangePicker />
+        <Checkbox>History</Checkbox>
       </Space>
+
+      <Table
+        dataSource={records}
+        columns={column}
+        loading={isLoading}
+        scroll={{ x: 10 }}
+      />
     </>
   )
 }
