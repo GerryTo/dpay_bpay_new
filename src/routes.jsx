@@ -110,6 +110,8 @@ import CrawlerErrorLog from './layouts/crawler-errorlog'
 import CrawlerWithdrawQueue from './layouts/crawler-withdrawqueue'
 import CrawlerAutomationFailed from './layouts/crawler-automationfailed'
 import CrawlerAutomationWithdrawal from './layouts/crawler-automationwithdrawal'
+import Settlement from './layouts/settlement'
+import SettlementTopup from './layouts/settlement-topup'
 
 export const mockdataRoutes = [
   {
@@ -816,14 +818,14 @@ export const mockdataRoutes = [
       {
         label: 'Settlement',
         key: 'M1',
-        element: '',
-        link: '/'
+        element: <Settlement />,
+        link: '/settlement'
       },
       {
         label: 'Settlement & Topup List',
         key: 'M2',
-        element: '',
-        link: '/'
+        element: <SettlementTopup />,
+        link: '/settlement-topup'
       }
     ]
   },
