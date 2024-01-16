@@ -1,31 +1,20 @@
-import { useEffect, useState } from 'react'
-import { apiGetMybankList } from '../../../services/api'
+import { useState } from 'react'
 import a from '../../../tmpdata/datalist.json'
+import { Button, Space } from 'antd'
+import { blue, lime } from '@ant-design/colors';
 const dataListTableData = () => {
-  // const [records, setRecords] = useState({})
-  const [isLoading, setIsloading] = useState(false)
-
-  // useEffect(() => {
-  //   getList()
-  // }, [])
-
-  // async function getList() {
-  //   try {
-  //     setIsloading(true)
-  //     const { data } = await apiGetMybankList()
-  //     if (data.status === 'ok') {
-  //       setRecords(data.records)
-  //       setIsloading(false)
-  //     } else {
-  //       alert('error')
-  //       setIsloading(false)
-  //     }
-  //   } catch (e) {
-  //     setIsloading(false)
-  //     console.log(e)
-  //   }
-  // }
-
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [isLastTrxModalOpen, setIsLastTrxModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isRecord, setIsRecord] = useState([])
+  const lasttrxModal = record => {
+    setIsLastTrxModalOpen(true)
+    setIsRecord(record)
+  } 
+  const editModal = record => {
+    setIsEditModalOpen(true)
+    setIsRecord(record)
+  }
   let tmpDataColumn = [
     {
       title: 'id',
@@ -36,13 +25,42 @@ const dataListTableData = () => {
       title: 'status',
       dataIndex: 'v_status',
       key: 'v_status'
+    },
+    {
+      title: 'Account Name',
+      dataIndex: 'account_name',
+      key: 'account_name'
+    },
+    {
+      title: 'Action',
+      dataIndex: '',
+      key: 'x',
+      render: record => (
+        <>
+        <Space direction='horizontal'>
+        <Button type="primary" onClick={() => editModal(record)}>
+          Edit
+        </Button>
+        <Button style={{backgroundColor: "lime"}} onClick={() => lasttrxModal(record)}>
+          Last Trx
+        </Button>
+        <Button style={{backgroundColor:"gray"}}>More</Button>
+        </Space>
+        </>
+      )
     }
   ]
 
   return {
     column: tmpDataColumn,
     records: a,
-    isLoading
+    isLoading,
+    isEditModalOpen,
+    setIsEditModalOpen,
+    isRecord,
+    setIsRecord,
+    isLastTrxModalOpen,
+    setIsLastTrxModalOpen
   }
 }
 
