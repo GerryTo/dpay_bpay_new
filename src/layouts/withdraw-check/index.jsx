@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Checkbox, DatePicker, Select, Space, Switch, Table } from 'antd'
 import dataWithdrawCheckDataTable from './data/dataWithdrawCheckDataTable'
+import ModalReassign from './components/ModalReassign'
+import ModalSuccess from './components/ModalSuccess'
 
 const WithdrawCheck = () => {
-  let { column, records, isLoading } = dataWithdrawCheckDataTable()
   const { RangePicker } = DatePicker
-  const handleChange = value => {
-    console.log(`selected ${value}`)
-  }
+  let { column, records, isLoading, isReassignModalOpen, setIsReassignModalOpen, isSuccessModalOpen, setIsSuccessModalOpen } = dataWithdrawCheckDataTable()
+  
   return (
     <>
       <Space direction="horizontal" size={'large'}>
@@ -20,6 +20,13 @@ const WithdrawCheck = () => {
         loading={isLoading}
         scroll={{ x: 10 }}
       />
+      {isReassignModalOpen && (<ModalReassign 
+      isReassignModalOpen={isReassignModalOpen}
+      setIsReassignModalOpen={setIsReassignModalOpen}/>)}
+      {isSuccessModalOpen &&(<ModalSuccess 
+      isSuccessModalOpen={isSuccessModalOpen} 
+      setIsSuccessModalOpen={setIsSuccessModalOpen}
+      />)}
     </>
   )
 }

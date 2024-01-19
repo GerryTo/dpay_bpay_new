@@ -1,13 +1,14 @@
 import { Card, Col, DatePicker, Row, Space, Typography } from 'antd';
 const Dashboard = () => {
   const { Title } = Typography;
+  const { RangePicker } = DatePicker
+
   return(
     <>
       <Title level={4}>Dashboard</Title>
       <div style={{paddingBottom: "1%"}}>
         <Space>
-          <DatePicker onChange="" />
-          <DatePicker onChange="" />
+          <RangePicker onChange=""/>
         </Space>
       </div>
       <Row gutter={16}>

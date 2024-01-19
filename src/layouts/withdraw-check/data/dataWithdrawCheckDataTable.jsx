@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import a from '../../../tmpdata/db.json'
+import { Button, Space } from 'antd'
 const dataWithdrawCheckDataTable = () => {
+  const [ isReassignModalOpen, setIsReassignModalOpen ] = useState(false)
+  const [ isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
+  const reassignModal = record => {
+    setIsReassignModalOpen(true)
+  }
+  const successModal = record => {
+    setIsSuccessModalOpen(true)
+  }
   let tmpDataColumn = [
     {
       title: 'Future ID',
@@ -50,10 +59,20 @@ const dataWithdrawCheckDataTable = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      key: 'action'
+      key: 'action',
+      render: record => (
+        <>
+        <Space direction="horizontal">
+          <Button type='primary' >Generate</Button>
+          <Button onClick={() => reassignModal(record)}>Re-Assign</Button>
+          <Button onClick="">Fail</Button>
+          <Button onClick={() => successModal(record)}>Success</Button>
+        </Space>
+        </>
+      )
     }
   ]
-  return { column: tmpDataColumn, records: a }
+  return { column: tmpDataColumn, records: a, isReassignModalOpen, setIsReassignModalOpen, isSuccessModalOpen, setIsSuccessModalOpen }
 }
 
 export default dataWithdrawCheckDataTable
