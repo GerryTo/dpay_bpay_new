@@ -12,7 +12,7 @@ const ExampleDataTable = () => {
 
   const data = [
     {
-      name: "gerry",
+      name: "gerryy",
       age: 10,
     },
   ];
