@@ -30,7 +30,7 @@
 //   ],
 // },
 
-import Dashboard from './layouts/dashboard'
+import Dashboard from './layouts/Dashboard'
 import {
   DesktopOutlined,
   PieChartOutlined,

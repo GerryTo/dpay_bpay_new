@@ -1,10 +1,6 @@
 import React from 'react'
 import a from '../../../../tmpdata/db.json'
 export const dataModalLastTrx = () => {
-
-
-
-
   
   let tmpDataColumns = [
     {

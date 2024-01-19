@@ -33,8 +33,8 @@ const dataListTableData = () => {
     },
     {
       title: 'Action',
-      dataIndex: '',
-      key: 'x',
+      dataIndex: 'action',
+      key: 'action',
       render: record => (
         <>
         <Space direction='horizontal'>
