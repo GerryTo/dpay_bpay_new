@@ -1,0 +1,9 @@
+[
+    {
+        "merchant_code": "1",
+        "customer_code": "a",
+        "no_different":"4",
+        "blacklist":"y",
+        "action":"detail"
+      }
+]

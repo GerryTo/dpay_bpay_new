@@ -1,0 +1,11 @@
+[
+    {
+        "acc_no": "1",
+        "acc_name": "test",
+        "bank":"a",
+        "type":"Z",
+        "is_active":"Y",
+        "daily_deposit_limit":"10000",
+        "current_transaction":"500"
+      }
+]

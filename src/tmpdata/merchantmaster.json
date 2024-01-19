@@ -1,0 +1,8 @@
+[
+    {
+        "merchant_code": "1",
+        "merchant_name": "test",
+        "timezone": "8",
+        "action":"edit,delete"
+      }
+]

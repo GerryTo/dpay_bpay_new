@@ -1,0 +1,12 @@
+[
+    {
+        "date": "2024-01-01",
+        "bank": "a",
+        "account_no":"1",
+        "account_name":"asd",
+        "cash_in":"1000",
+        "deposit":"2000",
+        "b2b_received":"500",
+        "b2b_send":"1000"
+      }
+]

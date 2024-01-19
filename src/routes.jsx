@@ -31,8 +31,105 @@
 // },
 
 import Dashboard from './layouts/dashboard'
-import { DesktopOutlined, PieChartOutlined } from '@ant-design/icons'
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  DoubleLeftOutlined,
+  FundOutlined,
+  BoxPlotOutlined,
+  AuditOutlined,
+  ContactsOutlined,
+  ContainerOutlined,
+  RiseOutlined,
+  FallOutlined,
+  LineChartOutlined,
+  AliwangwangOutlined,
+  DingdingOutlined,
+  ApartmentOutlined,
+  KeyOutlined,
+  LaptopOutlined,
+  PoweroffOutlined
+} from '@ant-design/icons'
 import MyBankDataList from './layouts/mybank-datalist'
+import MyBankUpdate from './layouts/mybank-update'
+import TransactionById from './layouts/transaction-by-id'
+import TransactionByAccount from './layouts/transaction-by-account'
+import TransactionByAccountHistory from './layouts/transaction-by-account-history'
+import MyBankBalance from './layouts/mybank-balance'
+import MyBankLimit from './layouts/mybank-limit'
+import ReportMonthly from './layouts/report-monthly'
+import ReportDaily from './layouts/report-daily'
+import BalanceDifference from './layouts/report-balancedifference'
+import AccountReportDaily from './layouts/report-accountreportdaily'
+import AccountReportSMS from './layouts/report-accountreportsms'
+import Download from './layouts/report-download'
+import Blacklist from './layouts/report-blacklist'
+import Account from './layouts/user-account'
+import AgentGroup from './layouts/agent-group'
+import AgentCommission from './layouts/agent-commission'
+import AgentCommissionSettlement from './layouts/agent-commissionsettlement'
+import AgentCreditBalance from './layouts/agent-creditbalance'
+import AgentCreditRequest from './layouts/agent-creditrequest'
+import AgentReportTransaction from './layouts/agent-reporttransaction'
+import MerchantMaster from './layouts/merchant-master'
+import MerchantBankAccount from './layouts/merchant-bankaccount'
+import MerchantTransaction from './layouts/merchant-transaction'
+import MerchantReport from './layouts/merchant-report'
+import DepositPending from './layouts/deposit-pending'
+import DepositQueue from './layouts/deposit-queue'
+import DepositQueueUnmatched from './layouts/deposit-queueumatched'
+import DepositQueueAlert from './layouts/deposit-queuealert'
+import WithdrawList from './layouts/withdraw-list'
+import WithdrawCheck from './layouts/withdraw-check'
+import WithdrawFilter from './layouts/withdraw-filter'
+import WithdrawFilterBulk from './layouts/withdraw-filterbulk'
+import WithdrawSetting from './layouts/withdraw-setting'
+import WithdrawTransaction from './layouts/withdraw-transaction'
+import WithdrawAssignment from './layouts/withdraw-assignment'
+import WithdrawAssignmentPending from './layouts/withdraw-assignmentpending'
+import WithdrawAssignmentBulk from './layouts/withdraw-assignmentbulk'
+import WithdrawQueue from './layouts/withdraw-queue'
+import TransactionResendCallback from './layouts/transaction-resendcallback'
+import TransactionCompletedToday from './layouts/transaction-completedtoday'
+import TransactionSuspected from './layouts/transaction-suspected'
+import TransactionSubmitted from './layouts/transaction-submitted'
+import TransactionPending from './layouts/transaction-pending'
+import TransactionFlagM from './layouts/transaction-flagm'
+import TransactionNotMatchSameday from './layouts/transaction-notmatchsameday'
+import TransactionResubmit from './layouts/transaction-resubmit'
+import TransactionLog from './layouts/transaction-log'
+import TransactionUpdate from './layouts/transaction-update'
+import TransactionUpdateLog from './layouts/transaction-updatelog'
+import TransactionResubmitAutoMatching from './layouts/transaction-resubmitautomatching'
+import TransactionAdjustment from './layouts/transaction-adjustment'
+import TransactionAdjustmentMerchant from './layouts/transaction-adjustmentmerchant'
+import SettingUpdateGroup from './layouts/setting-updategroup'
+import SettingSystem from './layouts/setting-system'
+import SettingControlPanel from './layouts/setting-controlpanel'
+import SimulationAvailableAccount from './layouts/simulation-availableaccount'
+import SmsLogId from './layouts/sms-logid'
+import SmsCriteriaNotMatchingId from './layouts/sms-criterianotmatchingid'
+import SmsLog from './layouts/sms-log'
+import SmsLogBalanceDifferent from './layouts/sms-logbalancedifferent'
+import SmsLogCustomerPhone from './layouts/sms-logcustomerphone'
+import SmsAppium from './layouts/sms-appium'
+import SmsSuspected from './layouts/sms-suspected'
+import SmsSuspectedCustomer from './layouts/sms-suspectedcustomer'
+import SmsFailedMatch from './layouts/sms-failedmatch'
+import SmsDuplicate from './layouts/sms-duplicate'
+import SmsLogHistory from './layouts/sms-loghistory'
+import SmsLastAck from './layouts/sms-lastack'
+import SmsLastAckActive from './layouts/sms-lastackactive'
+import SmsReport from './layouts/sms-report'
+import SmsPhoneWhitelist from './layouts/sms-phonewhitelist'
+import SmsServiceCenterWhitelist from './layouts/sms-servicecenterwhitelist'
+import CrawlerStatus from './layouts/crawler-status'
+import CrawlerErrorLog from './layouts/crawler-errorlog'
+import CrawlerWithdrawQueue from './layouts/crawler-withdrawqueue'
+import CrawlerAutomationFailed from './layouts/crawler-automationfailed'
+import CrawlerAutomationWithdrawal from './layouts/crawler-automationwithdrawal'
+import Settlement from './layouts/settlement'
+import SettlementTopup from './layouts/settlement-topup'
 
 export const mockdataRoutes = [
   {
@@ -45,86 +142,86 @@ export const mockdataRoutes = [
   {
     label: 'Quick Menu',
     key: 'B',
-    icon: <DesktopOutlined />,
+    icon: <DoubleLeftOutlined />,
     children: [
       {
         label: 'MyBank ACC',
         key: 'B1',
-        element: '',
-        link: '/'
+        element: <MyBankDataList />,
+        link: '/mybank-datalist'
       },
       {
         label: 'SMS Log by Id',
         key: 'B2',
-        element: '',
-        link: '/'
+        element: <SmsLogId />,
+        link: '/sms-logid'
       },
       {
         label: 'SMS Log',
         key: 'B3',
-        element: '',
-        link: '/'
+        element: <SmsLog />,
+        link: '/sms-log'
       },
       {
         label: 'SMS Last ACK',
         key: 'B4',
-        element: '',
-        link: '/'
+        element: <SmsLastAck />,
+        link: '/sms-lastack'
       },
       {
         label: 'Transaction By Id',
         key: 'B5',
-        element: '',
-        link: '/'
+        element: <TransactionById />,
+        link: '/transaction-by-id'
       },
       {
         label: 'Withdraw Check',
         key: 'B6',
-        element: '',
-        link: '/'
+        element: <WithdrawCheck />,
+        link: '/withdraw-check'
       },
       {
         label: 'Withdraw Check Filter',
         key: 'B7',
-        element: '',
-        link: '/'
+        element: <WithdrawFilter />,
+        link: '/withdraw-filter'
       },
       {
         label: 'Withdraw Check Filter Bulk',
         key: 'B8',
-        element: '',
-        link: '/'
+        element: <WithdrawFilterBulk />,
+        link: '/withdraw-filterbulk'
       },
       {
         label: 'Withdraw Check Filter New',
         key: 'B9',
-        element: '',
-        link: '/'
+        element: <WithdrawFilter />,
+        link: '/withdraw-filter'
       },
       {
         label: 'Assignment Bulk',
         key: 'B10',
-        element: '',
-        link: '/'
+        element: <WithdrawAssignmentBulk />,
+        link: '/withdraw-assignmentbulk'
       },
       {
         label: 'Resubmit Transaction',
         key: 'B11',
-        element: '',
-        link: '/'
+        element: <TransactionResubmit />,
+        link: '/transaction-resubmit'
       },
       {
         label: 'Update MyBank',
         key: 'B12',
-        element: '',
-        link: '/'
+        element: <MyBankUpdate />,
+        link: '/mybank-update'
       }
     ]
   },
   {
     label: 'MyBank ACC',
     key: 'C',
-    icon: <DesktopOutlined />,
+    icon: <FundOutlined />,
     children: [
       {
         label: 'Data List',
@@ -141,39 +238,39 @@ export const mockdataRoutes = [
       {
         label: 'Update MyBank',
         key: 'C3',
-        element: '',
-        link: '/'
+        element: <MyBankUpdate />,
+        link: '/bank-update'
       },
       {
         label: 'MyBank Balance',
         key: 'C4',
-        element: '',
-        link: '/'
+        element: <MyBankBalance />,
+        link: '/mybank-balance'
       },
       {
         label: 'MyBank Limit',
         key: 'C5',
-        element: '',
-        link: '/'
+        element: <MyBankLimit />,
+        link: '/mybank-limit'
       }
     ]
   },
   {
     label: 'Report',
     key: 'D',
-    icon: <DesktopOutlined />,
+    icon: <BoxPlotOutlined />,
     children: [
       {
         label: 'Report Monthly',
         key: 'D1',
-        element: '',
-        link: '/'
+        element: <ReportMonthly />,
+        link: '/report-monthly'
       },
       {
         label: 'Report Daily',
         key: 'D2',
-        element: '',
-        link: '/'
+        element: <ReportDaily />,
+        link: '/report-daily'
       },
       {
         label: 'Report Daily New',
@@ -184,14 +281,14 @@ export const mockdataRoutes = [
       {
         label: 'Balance Difference',
         key: 'D4',
-        element: '',
-        link: '/'
+        element: <BalanceDifference />,
+        link: '/report-balancedifference'
       },
       {
         label: 'Account Report By Transaction Daily',
         key: 'D5',
-        element: '',
-        link: '/'
+        element: <AccountReportDaily />,
+        link: '/report-accountreportdaily'
       },
       {
         label: 'Account Report By Transaction Daily New',
@@ -208,242 +305,230 @@ export const mockdataRoutes = [
       {
         label: 'Account Report By SMS Daily',
         key: 'D8',
-        element: '',
-        link: '/'
+        element: <AccountReportSMS />,
+        link: '/report-accountreportsms'
       },
       {
         label: 'Download Report',
         key: 'D9',
-        element: '',
-        link: '/'
+        element: <Download />,
+        link: '/report-download'
       },
       {
         label: 'Blacklist Report',
         key: 'D10',
-        element: '',
-        link: '/'
+        element: <Blacklist />,
+        link: '/report-blacklist'
       }
     ]
   },
   {
     label: 'User Management',
     key: 'E',
-    icon: <DesktopOutlined />,
+    icon: <AuditOutlined />,
     children: [
       {
         label: 'Accounts',
         key: 'E1',
-        element: '',
-        link: '/'
+        element: <Account />,
+        link: '/user-account'
       }
     ]
   },
   {
     label: 'Agents',
     key: 'F',
-    icon: <DesktopOutlined />,
+    icon: <ContactsOutlined />,
     children: [
       {
         label: 'Agent Group',
         key: 'F1',
-        element: '',
-        link: '/'
+        element: <AgentGroup />,
+        link: '/agent-group'
+      },
+      {
+        label: 'Agent Commission',
+        key: 'F2',
+        element: <AgentCommission />,
+        link: '/agent-commission'
       },
       {
         label: 'Agent Comm. Settlement',
-        key: 'F2',
-        element: '',
-        link: '/'
+        key: 'F3',
+        element: <AgentCommissionSettlement />,
+        link: '/agent-commissionsettlement'
       },
       {
         label: 'Agent Credit',
-        key: 'F3',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Agent Credit Monitoring',
         key: 'F4',
-        element: '',
-        link: '/'
+        element: <AgentCreditBalance />,
+        link: '/agent-creditbalance'
       },
       {
         label: 'Agent Credit Request',
         key: 'F5',
-        element: '',
-        link: '/'
+        element: <AgentCreditRequest />,
+        link: '/agent-creditrequest'
       },
       {
         label: 'Agent Report Transaction',
         key: 'F6',
-        element: '',
-        link: '/'
+        element: <AgentReportTransaction />,
+        link: '/agent-reporttransaction'
       }
     ]
   },
   {
     label: 'Merchant',
     key: 'G',
-    icon: <DesktopOutlined />,
+    icon: <ContainerOutlined />,
     children: [
       {
         label: 'Merchant Master',
         key: 'G1',
-        element: '',
-        link: '/'
+        element: <MerchantMaster />,
+        link: '/merchant-master'
       },
       {
         label: 'Merchant Bank ACC',
         key: 'G2',
-        element: '',
-        link: '/'
+        element: <MerchantBankAccount />,
+        link: '/merchant-bankaccount'
       },
       {
         label: 'Merchant Transaction',
         key: 'G3',
-        element: '',
-        link: '/'
+        element: <MerchantTransaction />,
+        link: '/merchant-transaction'
       },
       {
         label: 'Merchant Transaction History',
         key: 'G4',
-        element: '',
-        link: '/'
+        element: <MerchantTransaction />,
+        link: '/merchant-transaction'
       },
       {
         label: 'Report Merchant',
         key: 'G5',
-        element: '',
-        link: '/'
+        element: <MerchantReport />,
+        link: '/merchant-report'
       }
     ]
   },
   {
     label: 'Deposits',
     key: 'H',
-    icon: <DesktopOutlined />,
+    icon: <RiseOutlined />,
     children: [
       {
         label: 'Merchant Transaction Deposit',
         key: 'H1',
-        element: '',
-        link: '/'
+        element: <MerchantTransaction />,
+        link: '/merchant-transaction'
       },
       {
         label: 'Deposit Pending',
         key: 'H2',
-        element: '',
-        link: '/'
+        element: <DepositPending />,
+        link: '/deposit-pending'
       },
       {
         label: 'Deposit Queue Today',
         key: 'H3',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Deposit Queue Today BDT',
-        key: 'H4',
-        element: '',
-        link: '/'
+        element: <DepositQueue />,
+        link: '/deposit-queue'
       },
       {
         label: 'Deposit Queue Unmatched By Date',
-        key: 'H5',
-        element: '',
-        link: '/'
+        key: 'H4',
+        element: <DepositQueueUnmatched />,
+        link: '/deposit-queueunmatched'
       },
       {
         label: 'Deposit Queue Alert',
-        key: 'H6',
-        element: '',
-        link: '/'
+        key: 'H5',
+        element: <DepositQueueAlert />,
+        link: '/deposit-queuealert'
       }
     ]
   },
   {
     label: 'Withdrawal',
     key: 'I',
-    icon: <DesktopOutlined />,
+    icon: <FallOutlined />,
     children: [
       {
         label: 'Withdraw List',
         key: 'I1',
-        element: '',
-        link: '/'
+        element: <WithdrawList />,
+        link: '/withdraw-list'
       },
       {
         label: 'Withdraw Check',
         key: 'I2',
-        element: '',
-        link: '/'
+        element: <WithdrawCheck />,
+        link: '/withdraw-check'
       },
       {
         label: 'Withdraw Check Filter',
         key: 'I3',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Withdraw Check Filter New',
-        key: 'I4',
-        element: '',
-        link: '/'
+        element: <WithdrawFilter />,
+        link: '/withdraw-filter'
       },
       {
         label: 'Withdraw Check Filter Bulk',
-        key: 'I5',
-        element: '',
-        link: '/'
+        key: 'I4',
+        element: <WithdrawFilterBulk />,
+        link: '/withdraw-filterbulk'
       },
       {
         label: 'Setting',
-        key: 'I6',
-        element: '',
-        link: '/'
+        key: 'I5',
+        element: <WithdrawSetting />,
+        link: '/withdraw-setting'
       },
       {
         label: 'Merchant Transaction Withdrawal',
-        key: 'I7',
-        element: '',
-        link: '/'
+        key: 'I6',
+        element: <WithdrawTransaction />,
+        link: '/withdraw-transaction'
       },
       {
         label: 'Assignment',
-        key: 'I8',
-        element: '',
-        link: '/'
+        key: 'I7',
+        element: <WithdrawAssignment />,
+        link: '/withdraw-assignment'
       },
       {
         label: 'Assignment Bulk',
-        key: 'I9',
-        element: '',
-        link: '/'
+        key: 'I8',
+        element: <WithdrawAssignmentBulk />,
+        link: '/withdraw-assignmentbulk'
       },
       {
         label: 'Assignment Pending',
-        key: 'I10',
-        element: '',
-        link: '/'
+        key: 'I9',
+        element: <WithdrawAssignmentPending />,
+        link: '/withdraw-assignmentpending'
       },
       {
         label: 'Withdraw Queue',
-        key: 'I11',
-        element: '',
-        link: '/'
+        key: 'I10',
+        element: <WithdrawQueue />,
+        link: '/withdraw-queue'
       }
     ]
   },
   {
     label: 'Transaction',
     key: 'J',
-    icon: <DesktopOutlined />,
+    icon: <LineChartOutlined />,
     children: [
       {
         label: 'Transaction By Id',
         key: 'J1',
-        element: '',
-        link: '/'
+        element: <TransactionById />,
+        link: '/transaction-by-id'
       },
       {
         label: 'Transaction By Id Backup',
@@ -466,32 +551,32 @@ export const mockdataRoutes = [
       {
         label: 'Transaction By Account',
         key: 'J5',
-        element: '',
-        link: '/'
+        element: <TransactionByAccount />,
+        link: '/transaction-by-account'
       },
       {
         label: 'Transaction By Account History',
         key: 'J6',
-        element: '',
-        link: '/'
+        element: <TransactionByAccountHistory />,
+        link: '/transaction-by-account-history'
       },
       {
         label: 'Transaction Resend Callback',
         key: 'J7',
-        element: '',
-        link: '/'
+        element: <TransactionResendCallback />,
+        link: '/transaction-resendcallback'
       },
       {
         label: 'Transaction Resend Callback 502',
         key: 'J8',
-        element: '',
-        link: '/'
+        element: <TransactionResendCallback />,
+        link: '/transaction-resendcallback'
       },
       {
         label: 'Transaction Completed Today',
         key: 'J9',
-        element: '',
-        link: '/'
+        element: <TransactionCompletedToday />,
+        link: '/transaction-completedtoday'
       },
       {
         label: 'Transaction By Id NA',
@@ -508,105 +593,105 @@ export const mockdataRoutes = [
       {
         label: 'Suspected Transaction',
         key: 'J12',
-        element: '',
-        link: '/'
+        element: <TransactionSuspected />,
+        link: '/transaction-suspected'
       },
       {
         label: 'Submitted Transaction',
         key: 'J13',
-        element: '',
-        link: '/'
+        element: <TransactionSubmitted />,
+        link: '/transaction-submitted'
       },
       {
         label: 'Transaction Pending',
         key: 'J14',
-        element: '',
-        link: '/'
+        element: <TransactionPending />,
+        link: '/transaction-pending'
       },
       {
         label: 'Transaction Flag By M',
         key: 'J15',
-        element: '',
-        link: '/'
+        element: <TransactionFlagM />,
+        link: '/transaction-flagm'
       },
       {
         label: 'Transaction By Not Match Sameday',
         key: 'J16',
-        element: '',
-        link: '/'
+        element: <TransactionNotMatchSameday />,
+        link: '/transaction-notmatchsameday'
       },
       {
         label: 'Resubmit Transaction',
         key: 'J17',
-        element: '',
-        link: '/'
+        element: <TransactionResubmit />,
+        link: '/transaction-resubmit'
       },
       {
         label: 'Resubmit Transaction Log',
         key: 'J18',
-        element: '',
-        link: '/'
+        element: <TransactionLog />,
+        link: '/transaction-log'
       },
       {
         label: 'Resubmit Auto Matching',
         key: 'J19',
-        element: '',
-        link: '/'
+        element: <TransactionResubmitAutoMatching />,
+        link: '/transaction-resubmitautomatching'
       },
       {
         label: 'Update Transaction',
         key: 'J20',
-        element: '',
-        link: '/'
+        element: <TransactionUpdate />,
+        link: '/transaction-update'
       },
       {
         label: 'Update Transaction New',
         key: 'J21',
-        element: '',
-        link: '/'
+        element: <TransactionUpdate />,
+        link: '/transaction_update'
       },
       {
         label: 'Update Transaction Log',
         key: 'J22',
-        element: '',
-        link: '/'
+        element: <TransactionUpdateLog />,
+        link: '/transaction-updatelog'
       },
       {
         label: 'Adjustment',
         key: 'J23',
-        element: '',
-        link: '/'
+        element: <TransactionAdjustment />,
+        link: '/transaction-adjustment'
       },
       {
         label: 'Adjustment Merchant',
         key: 'J24',
-        element: '',
-        link: '/'
+        element: <TransactionAdjustmentMerchant />,
+        link: '/transaction-adjustmentmerchant'
       }
     ]
   },
   {
     label: 'SMS',
     key: 'K',
-    icon: <DesktopOutlined />,
+    icon: <AliwangwangOutlined />,
     children: [
       {
         label: 'SMS Log By Id',
         key: 'K1',
-        element: '',
-        link: '/'
+        element: <SmsLogId />,
+        link: '/sms-logid'
       },
       {
         label: 'SMS Criteria not Matching By Id ',
         key: 'K2',
-        element: '',
-        link: '/'
+        element: <SmsCriteriaNotMatchingId />,
+        link: '/sms-criterianotmatchingid'
       },
       {
         label: 'SMS Log',
         key: 'K3',
-        element: '',
-        link: '/'
+        element: <SmsLog />,
+        link: '/sms-log'
       },
       {
         label: 'SMS Log Backup',
@@ -617,174 +702,193 @@ export const mockdataRoutes = [
       {
         label: 'SMS Log By Balance Diff',
         key: 'K5',
-        element: '',
-        link: '/'
+        element: <SmsLogBalanceDifferent />,
+        link: '/sms-logbalancedifferent'
       },
       {
         label: 'SMS Log By Customer Phone',
         key: 'K6',
-        element: '',
-        link: '/'
+        element: <SmsLogCustomerPhone />,
+        link: '/sms-logcustomerphone'
+      },
+      {
+        label: 'Appium List',
+        key: 'K7',
+        element: <SmsAppium />,
+        link: '/sms-appium'
       },
       {
         label: 'Suspected SMS',
-        key: 'K7',
-        element: '',
-        link: '/'
+        key: 'K8',
+        element: <SmsSuspected />,
+        link: '/sms-suspected'
       },
       {
         label: 'Suspected Customer',
-        key: 'K8',
-        element: '',
-        link: '/'
+        key: 'K9',
+        element: <SmsSuspectedCustomer />,
+        link: '/sms-suspectedcustomer'
       },
       {
         label: 'SMS Failed Match',
-        key: 'K9',
-        element: '',
-        link: '/'
+        key: 'K10',
+        element: <SmsFailedMatch />,
+        link: '/sms-failedmatch'
       },
       {
         label: 'SMS Failed Match by Not Match Sameday',
-        key: 'K10',
-        element: '',
-        link: '/'
-      },
-      {
-        label: 'Duplicate SMS',
         key: 'K11',
         element: '',
         link: '/'
       },
       {
-        label: 'SMS Log History',
+        label: 'Duplicate SMS',
         key: 'K12',
-        element: '',
-        link: '/'
+        element: <SmsDuplicate />,
+        link: '/sms-duplicate'
+      },
+      {
+        label: 'SMS Log History',
+        key: 'K13',
+        element: <SmsLogHistory />,
+        link: '/sms-loghistory'
       },
       {
         label: 'SMS Last ACK',
-        key: 'K13',
-        element: '',
-        link: '/'
+        key: 'K14',
+        element: <SmsLastAck />,
+        link: '/sms-lastack'
       },
       {
         label: 'SMS Last ACK Active',
-        key: 'K14',
-        element: '',
-        link: '/'
+        key: 'K15',
+        element: <SmsLastAckActive />,
+        link: '/sms-lastackactive'
       },
       {
         label: 'Report SMS',
-        key: 'K15',
-        element: '',
-        link: '/'
+        key: 'K16',
+        element: <SmsReport />,
+        link: '/sms-report'
       },
       {
         label: 'Phone Whitelist',
-        key: 'K16',
-        element: '',
-        link: '/'
+        key: 'K17',
+        element: <SmsPhoneWhitelist />,
+        link: '/sms-phonewhitelist'
       },
       {
         label: 'Service Center Whitelist',
-        key: 'K17',
-        element: '',
-        link: '/'
+        key: 'K18',
+        element: <SmsServiceCenterWhitelist />,
+        link: '/sms-servicecenterwhitelist'
       }
     ]
   },
   {
     label: 'Crawler',
     key: 'L',
-    icon: <DesktopOutlined />,
+    icon: <DingdingOutlined />,
     children: [
       {
         label: 'Crawler List',
         key: 'L1',
-        element: '',
-        link: '/'
+        element: <SmsAppium />,
+        link: '/sms-appium'
       },
       {
         label: 'Account Status',
         key: 'L2',
-        element: '',
-        link: '/'
+        element: <CrawlerStatus />,
+        link: '/crawler-status'
       },
       {
         label: 'Error Log',
         key: 'L3',
-        element: '',
-        link: '/'
+        element: <CrawlerErrorLog />,
+        link: '/crawler-errorlog'
       },
       {
         label: 'Withdraw Queue',
         key: 'L4',
-        element: '',
-        link: '/'
+        element: <CrawlerWithdrawQueue />,
+        link: '/crawler-withdrawqueue'
       },
       {
         label: 'Automation Failed Suspected',
         key: 'L5',
-        element: '',
-        link: '/'
+        element: <CrawlerAutomationFailed />,
+        link: '/crawler-automationfailed'
       },
       {
         label: 'Automation Withdraw History',
         key: 'L6',
-        element: '',
-        link: '/'
+        element: <CrawlerAutomationWithdrawal />,
+        link: '/crawler-automationwithdrawal'
       }
     ]
   },
   {
     label: 'Settlement',
     key: 'M',
-    icon: <DesktopOutlined />,
+    icon: <ApartmentOutlined />,
     children: [
       {
         label: 'Settlement',
         key: 'M1',
-        element: '',
-        link: '/'
+        element: <Settlement />,
+        link: '/settlement'
       },
       {
         label: 'Settlement & Topup List',
         key: 'M2',
-        element: '',
-        link: '/'
+        element: <SettlementTopup />,
+        link: '/settlement-topup'
       }
     ]
   },
   {
     label: 'Setting',
     key: 'N',
-    icon: <DesktopOutlined />,
+    icon: <KeyOutlined />,
     children: [
       {
         label: 'Update Group',
         key: 'N1',
-        element: '',
-        link: '/'
+        element: <SettingUpdateGroup />,
+        link: '/setting-updategroup'
       },
       {
         label: 'System Setting',
         key: 'N2',
-        element: '',
-        link: '/'
+        element: <SettingSystem />,
+        link: '/setting-system'
       },
       {
         label: 'CP Journal',
         key: 'N3',
-        element: '',
-        link: '/'
+        element: <SettingControlPanel />,
+        link: '/setting-controlpanel'
+      }
+    ]
+  },
+  {
+    label: 'Simulation',
+    key: 'O',
+    icon: <LaptopOutlined />,
+    children: [
+      {
+        label: 'Available Account Selection Simulation',
+        key: 'O1',
+        element: <SimulationAvailableAccount />,
+        link: '/simulation-availableaccount'
       }
     ]
   },
   {
     label: 'Logout',
-    key: 'O',
-    icon: <PieChartOutlined />,
+    key: 'P',
+    icon: <PoweroffOutlined />,
     element: '',
     link: '/'
   }

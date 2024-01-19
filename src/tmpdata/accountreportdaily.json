@@ -1,0 +1,14 @@
+[
+    {
+        "date": "2024-01-01",
+        "bank": "a",
+        "account_no":"1",
+        "account_name":"asd",
+        "deposit":"1000",
+        "withdraw":"2000",
+        "adj_deposit":"500",
+        "adj_withdraw":"1000",
+        "total_deposit":"1000",
+        "total_withdraw":"2000"
+      }
+]

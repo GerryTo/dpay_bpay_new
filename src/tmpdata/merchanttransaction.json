@@ -1,0 +1,22 @@
+[
+    {
+        "future_trx_id": "1",
+        "date": "2024-01-01",
+        "original_date": "2024-01-01",
+        "insert_date":"2024-01-01",
+        "account_no":"10",
+        "customer_code":"a1",
+        "bank":"bank1",
+        "debit":"100",
+        "credit":"200",
+        "ip":"192.168.1.1",
+        "trans_type":"a",
+        "status":"ok",
+        "fee":"25",
+        "notes":"note1",
+        "notes_2":"note2",
+        "notes_3":"note3",
+        "trans_id":"t1",
+        "reference":"ref"
+      }
+]
