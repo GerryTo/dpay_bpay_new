@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import a from '../../../tmpdata/agentcreditbalance.json'
+import { Button, Space } from 'antd'
 const dataAgentCreditBalanceTableData = () => {
+  const [isAdjustInModalOpen, setIsAdjustInModalOpen] = useState(false)
+  const [isAdjustOutModalOpen, setIsAdjustOutModalOpen] = useState(false)
+  const adjustinModal= record => {
+    setIsAdjustInModalOpen(true)
+  }
+  const adjustoutModal = record => {
+    setIsAdjustOutModalOpen(true)
+  }
   let tmpDataColumn = [
     {
       title: 'Agent',
@@ -40,10 +49,18 @@ const dataAgentCreditBalanceTableData = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      key: 'action'
+      key: 'action',
+      render: record => (
+        <>
+        <Space direction='horizontal'>
+        <Button type='primary' onClick={() => adjustinModal(record)}>Adjust In</Button>
+        <Button style={{backgroundColor:"yellow"}} onClick={() => adjustoutModal(record)}>Adjust Out</Button>
+        </Space>
+        </>
+      )
     }
   ]
-  return { column: tmpDataColumn, records: a }
+  return { column: tmpDataColumn, records: a, isAdjustInModalOpen, setIsAdjustInModalOpen, isAdjustOutModalOpen, setIsAdjustOutModalOpen }
 }
 
 export default dataAgentCreditBalanceTableData

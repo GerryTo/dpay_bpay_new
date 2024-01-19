@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import a from '../../../tmpdata/download.json'
+import { Button } from 'antd'
 
 const dataDownload = () => {
   const [isLoading, setIsloading] = useState(false)
@@ -12,7 +13,13 @@ const dataDownload = () => {
     {
       title: 'Link',
       dataIndex: 'link',
-      key: 'link'
+      key: 'link',
+      render: record => (
+        <>
+        <Button onClick="" type='primary'>Download</Button>
+        </>
+      )
+
     }
   ]
   return {

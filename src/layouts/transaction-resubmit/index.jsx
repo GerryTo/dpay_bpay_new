@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Button,
   Checkbox,
   DatePicker,
+  Input,
   Select,
   Space,
   Switch,
@@ -12,8 +13,9 @@ import {
 import dataTransactionResubmitTableData from './data/dataTransactionResubmitTableData'
 
 const TransactionResubmit = () => {
+  const [selectedValue, setSelectedValue] = useState("1")
   const handleChange = value => {
-    console.log(`selected ${value}`)
+    setSelectedValue(value)
   }
   let { column, records, isLoading } = dataTransactionResubmitTableData()
   return (
@@ -23,7 +25,7 @@ const TransactionResubmit = () => {
           style={{
             width: 250
           }}
-          defaultValue={'1'}
+          defaultValue={selectedValue}
           onChange={handleChange}
           options={[
             {
@@ -44,6 +46,7 @@ const TransactionResubmit = () => {
             }
           ]}
         />
+        {selectedValue==="1" && <Input defaultValue={"1000"} type='number'/>}
         <Button type="primary">Submit</Button>
       </Space>
       <Table

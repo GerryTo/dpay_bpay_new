@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import a from '../../../tmpdata/blacklist.json'
+import { Button, Space } from 'antd'
 
 const dataBlacklist = () => {
   const [isLoading, setIsloading] = useState(false)
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false)
+  const detailModal = record => {
+    setIsDetailModalOpen(true)
+  }
   let tmpDataColumn = [
     {
       title: 'Merchant Code',
@@ -27,12 +32,22 @@ const dataBlacklist = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      key: 'action'
+      key: 'action',
+      render: record => (
+        <>
+        <Space direction='horizontal'>
+        <Button type='primary' onClick={() => detailModal(record)}>Detail</Button>
+        <Button danger onClick="">Blacklist</Button>
+        </Space>
+        </>
+      )
     }
   ]
   return {
     column: tmpDataColumn,
-    records: a
+    records: a,
+    isDetailModalOpen,
+    setIsDetailModalOpen
   }
 }
 
