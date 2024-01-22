@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import a from '../../../tmpdata/db.json'
+import { Button } from 'antd'
 export const dataSmsServiceCenterWhitelistTableData = () => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const editModal= record => {
+    setIsEditModalOpen(true)
+  }
   let tmpDataColumn = [
     {
       title: 'Service Center',
@@ -20,12 +25,19 @@ export const dataSmsServiceCenterWhitelistTableData = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      key: 'action'
+      key: 'action',
+      render: record => (
+        <>
+        <Button type='primary' onClick={() => editModal(record)}>Edit</Button>
+        </>
+      )
     }
   ]
   return {
     column: tmpDataColumn,
-    records: a
+    records: a,
+    isEditModalOpen,
+    setIsEditModalOpen
   }
 }
 

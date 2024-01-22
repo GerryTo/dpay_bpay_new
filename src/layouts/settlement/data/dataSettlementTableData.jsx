@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import a from '../../../tmpdata/db.json'
 export const dataSettlementTableData = () => {
+
   let tmpDataColumn = [
     {
       title: 'Date',

@@ -62,6 +62,7 @@ const SettingUpdateGroup = () => {
             ]}
           />
         </Space>
+        <Button onClick="" type='primary'>Submit</Button>
       </Space>
     </>
   )

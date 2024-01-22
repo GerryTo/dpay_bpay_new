@@ -1,6 +1,8 @@
 import { Button, Checkbox, DatePicker, Input, Select, Space, Table } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import dataSmsServiceCenterWhitelistTableData from './data/dataSmsServiceCenterWhitelistTableData'
+import ModalEdit from './components/ModalEdit'
+import ModalAddNew from './components/ModalAddNew'
 const onChange = (date, dateString) => {
   console.log(date, dateString)
 }
@@ -9,11 +11,15 @@ const handleChange = value => {
 }
 const { RangePicker } = DatePicker
 const SmsServiceCenterWhitelist = () => {
-  let { column, records, isLoading } = dataSmsServiceCenterWhitelistTableData()
+  const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false)
+  const addnewModal = record => {
+    setIsAddNewModalOpen(true)
+  }
+  let { column, records, isLoading, isEditModalOpen, setIsEditModalOpen } = dataSmsServiceCenterWhitelistTableData()
   return (
     <>
       <Space>
-        <Button type="primary">Add New</Button>
+        <Button type="primary" onClick={addnewModal}>Add New</Button>
       </Space>
 
       <Table
@@ -22,6 +28,8 @@ const SmsServiceCenterWhitelist = () => {
         loading={isLoading}
         scroll={{ x: 10 }}
       />
+      <ModalEdit setIsEditModalOpen={setIsEditModalOpen} isEditModalOpen={isEditModalOpen}/>
+      <ModalAddNew setIsAddNewModalOpen={setIsAddNewModalOpen} isAddNewModalOpen={isAddNewModalOpen}/>
     </>
   )
 }
