@@ -1,5 +1,6 @@
 import React from 'react'
 import a from '../../../tmpdata/download.json'
+import { Button } from 'antd'
 const dataMerchantReport = () => {
   let tmpDataColumn = [
     {
@@ -10,7 +11,12 @@ const dataMerchantReport = () => {
     {
       title: 'Link',
       dataIndex: 'link',
-      key: 'link'
+      key: 'link',
+      render: record => (
+        <>
+        <Button type="primary" onClick="">Download</Button>
+        </>
+      )
     }
   ]
   return { column: tmpDataColumn, records: a }

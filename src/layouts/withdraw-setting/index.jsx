@@ -12,7 +12,7 @@ import {
 import dataWithdrawSettingTableData from './data/dataWithdrawSettingTableData'
 
 const WithdrawSetting = () => {
-  let { column, records, isLoading } = dataWithdrawSettingTableData()
+  let { column, records, isLoading, buttonText, setButtonText, buttonColor, setButtonColor } = dataWithdrawSettingTableData()
 
   return (
     <>
