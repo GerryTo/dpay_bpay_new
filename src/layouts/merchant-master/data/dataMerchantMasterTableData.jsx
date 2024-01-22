@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 import a from '../../../tmpdata/merchantmaster.json'
+import { Button, Space } from 'antd'
 const dataMerchantMasterTableData = () => {
   const [isLoading, setIsloading] = useState(false)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const editModal = record => {
+    setIsEditModalOpen(true)
+  }
   let tmpDataColumn = [
     {
       title: 'Merchant Code',
@@ -21,12 +26,22 @@ const dataMerchantMasterTableData = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      key: 'action'
+      key: 'action',
+      render: record => (
+        <>
+        <Space direction='horizontal'>
+          <Button type='primary' onClick={() => editModal(record)}>Edit</Button>
+          <Button danger onClick="">Delete</Button>
+        </Space>
+        </>
+      )
     }
   ]
   return {
     column: tmpDataColumn,
-    records: a
+    records: a,
+    isEditModalOpen,
+    setIsEditModalOpen
   }
 }
 
