@@ -15,7 +15,6 @@ const MyBankDataList = () => {
     isLastTrxModalOpen,
     setIsLastTrxModalOpen
   } = dataListTableData()
-  console.log(isLastTrxModalOpen)
   return (
     <>
       <Table
@@ -26,7 +25,7 @@ const MyBankDataList = () => {
       />
       {isEditModalOpen && (
         <ModalEdit
-          setIsModalOpen={setIsEditModalOpen}
+          setIsEditModalOpen={setIsEditModalOpen}
           isEditModalOpen={isEditModalOpen}
           setIsRecord={setIsRecord}
           isRecord={isRecord}

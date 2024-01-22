@@ -8,14 +8,15 @@ const init = {
 const CheckboxGroup = Checkbox.Group;
 const plainOptions = ['BJBDT', 'ICCWBDT', 'ICCWBDT1'];
 const defaultCheckedList = [];
-const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
+
+const ModalEdit = ({setIsEditModalOpen, isEditModalOpen, isRecord }) => {
   const handleOk = () => {
     setIsEditModalOpen(false)
   }
   const handleCancel = () => {
     setIsEditModalOpen(false)
   }
-  const handleChange = (name, value) => {
+  const handleChange = (value) => {
     console.log(value)
   }
 
