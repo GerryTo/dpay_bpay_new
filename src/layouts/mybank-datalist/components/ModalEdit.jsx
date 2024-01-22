@@ -1,13 +1,14 @@
-import { Checkbox, Flex, Form, Input, Modal, Space, Typography } from 'antd'
+import { Checkbox, Divider, Flex, Form, Input, Modal, Space, Typography } from 'antd'
 import React, { useState } from 'react'
 
 const { Text } = Typography
 const init = {
   accountNo: '123'
 }
-
+const CheckboxGroup = Checkbox.Group;
+const plainOptions = ['BJBDT', 'ICCWBDT', 'ICCWBDT1'];
+const defaultCheckedList = [];
 const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
-  const [newdata, setData] = useState(init)
   const handleOk = () => {
     setIsEditModalOpen(false)
   }
@@ -16,11 +17,17 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
   }
   const handleChange = (name, value) => {
     console.log(value)
-    setData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
   }
+
+  const [checkedList, setCheckedList] = useState(defaultCheckedList);
+  const checkAll = plainOptions.length === checkedList.length;
+  const indeterminate = checkedList.length > 0 && checkedList.length < plainOptions.length;
+  const onChange = (list) => {
+    setCheckedList(list);
+  };
+  const onCheckAllChange = (e) => {
+    setCheckedList(e.target.checked ? plainOptions : []);
+  };
   return (
     <>
       <Modal
@@ -38,20 +45,16 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             <Form.Item label="Account No." style={{ paddingBottom: '5%' }}>
               <Input
                 placeholder="Account No."
-                value={newdata.accountNo}
-                onChange={(e) =>
-                  handleChange("accountNo", e.currentTarget.value)
-                }
               />
             </Form.Item>
             <Form.Item label="Account ID" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Account ID" value={isRecord.v_status} />
+              <Input placeholder="Account ID" />
             </Form.Item>
             <Form.Item label="Branch" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Branch" value={isRecord.v_status} />
+              <Input placeholder="Branch" />
             </Form.Item>
             <Form.Item label="Status" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Status" value={isRecord.v_status} />
+              <Input placeholder="Status" />
             </Form.Item>
             <Form.Item
               label="Daily Withdraw Limit"
@@ -59,11 +62,10 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             >
               <Input
                 placeholder="Daily Withdraw Limit"
-                value={isRecord.v_status}
               />
             </Form.Item>
             <Form.Item label="Max Deposit" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Max Deposit" value={isRecord.v_status} />
+              <Input placeholder="Max Deposit"  />
             </Form.Item>
             <Form.Item
               label="Balance Different Criteria"
@@ -71,25 +73,25 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             >
               <Input
                 placeholder="Balance Different Criteria"
-                value={isRecord.v_status}
+                
               />
             </Form.Item>
           </Form>
           <Form layout="vertical" style={{ width: '32%' }}>
             <Form.Item label="Account Name" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Account Name" value={isRecord.account_name} />
+              <Input placeholder="Account Name"  />
             </Form.Item>
             <Form.Item label="IFSC" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="IFSC" value={isRecord.v_status} />
+              <Input placeholder="IFSC"  />
             </Form.Item>
             <Form.Item label="User Login" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="User Login" value={isRecord.v_status} />
+              <Input placeholder="User Login"  />
             </Form.Item>
             <Form.Item label="Type" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Type" value={isRecord.v_status} />
+              <Input placeholder="Type"  />
             </Form.Item>
             <Form.Item label="Phone Number" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Phone Number" value={isRecord.v_status} />
+              <Input placeholder="Phone Number"  />
             </Form.Item>
             <Form.Item
               label="Agent Commission Deposit(%)"
@@ -97,7 +99,7 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             >
               <Input
                 placeholder="Agent Commission Deposit(%)"
-                value={isRecord.v_status}
+                
               />
             </Form.Item>
             <Form.Item
@@ -106,19 +108,19 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             >
               <Input
                 placeholder="Always Chosen for Available Account"
-                value={isRecord.v_status}
+                
               />
             </Form.Item>
           </Form>
           <Form layout="vertical" style={{ width: '33%' }}>
             <Form.Item label="Alias" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Alias" value={isRecord.alias} />
+              <Input placeholder="Alias"  />
             </Form.Item>
             <Form.Item label="Bank" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Bank" value={isRecord.alias} />
+              <Input placeholder="Bank"  />
             </Form.Item>
             <Form.Item label="User Password" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="User Password" value={isRecord.v_status} />
+              <Input placeholder="User Password"  />
             </Form.Item>
             <Form.Item
               label="Daily Deposit Limit"
@@ -126,11 +128,11 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             >
               <Input
                 placeholder="Daily Deposit Limit"
-                value={isRecord.v_status}
+                
               />
             </Form.Item>
             <Form.Item label="Min. Deposit" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Min. Deposit" value={isRecord.v_status} />
+              <Input placeholder="Min. Deposit"  />
             </Form.Item>
             <Form.Item
               label="Agent Commission Withdraw(%)"
@@ -138,19 +140,20 @@ const ModalEdit = ({ setIsEditModalOpen, isEditModalOpen, isRecord }) => {
             >
               <Input
                 placeholder="Agent Commission Withdraw(%)"
-                value={isRecord.v_status}
+                
               />
             </Form.Item>
             <Form.Item label="Appium Online" style={{ paddingBottom: '5%' }}>
-              <Input placeholder="Appium Online" value={isRecord.v_status} />
+              <Input placeholder="Appium Online"  />
             </Form.Item>
           </Form>
         </Form>
         <Space direction='vertical'>
         <Text>List Merchant</Text>
-        <Checkbox>Check All</Checkbox>
-        <Checkbox>BJBDT</Checkbox>
-        <Checkbox>ICCWBDT</Checkbox>
+        <Checkbox indeterminate={indeterminate} onChange={onCheckAllChange} checked={checkAll}>
+        Check all
+        </Checkbox>
+      <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
         </Space>
       </Modal>
     </>
