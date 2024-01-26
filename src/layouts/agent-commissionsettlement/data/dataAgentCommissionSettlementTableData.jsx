@@ -1,5 +1,6 @@
 import React from 'react'
 import a from '../../../tmpdata/agentcommissionsettlement.json'
+import { Button, Space } from 'antd'
 const dataAgentCommissionSettlementTableData = () => {
   let tmpDataColumn = [
     {
@@ -51,7 +52,15 @@ const dataAgentCommissionSettlementTableData = () => {
     {
       title: 'Action',
       dataIndex: 'action',
-      key: 'action'
+      key: 'action',
+      render: record => (
+        <>
+        <Space direction='horizontal'>
+          <Button onClick="" type='primary'>Approve</Button>
+          <Button onClick="" danger>Reject</Button>
+        </Space>
+        </>
+      )
     }
   ]
   return { column: tmpDataColumn, records: a }

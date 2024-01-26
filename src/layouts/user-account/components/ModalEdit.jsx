@@ -1,4 +1,4 @@
-import { Checkbox, Flex, Form, Input, List, Modal, Table, Typography } from 'antd'
+import { Checkbox, Flex, Form, Input, List, Modal, Select, Table, Typography } from 'antd'
 import React, { useState } from 'react'
 
 const { Text } = Typography
@@ -11,27 +11,65 @@ const ModalEdit = ({ isEditModalOpen, setIsEditModalOpen }) => {
     const handleCancel = () => {
         setIsEditModalOpen(false)
     }
+    const handleChange = value => {
+        
+    }
   return (
     <>
     <Modal width={"74%"} title="Login Form" open={isEditModalOpen} onOk={handleOk} onCancel={handleCancel}>
         <Form layout='vertical' >
-            <Form.Item label="User Login">
+        <Form.Item label="User Login">
                 <Input placeholder='User Login'/>
             </Form.Item>
             <Form.Item label="Password">
-                <Input placeholder='Password'/>
+                <Input placeholder='Password' type='password'/>
             </Form.Item>
             <Form.Item label="Active">
-                <Input placeholder='Active'/>
+                <Select defaultValue="yes" onChange={handleChange} options={[
+                    {
+                        value:"yes",
+                        label:"Yes"
+                    },
+                    {
+                        value:"no",
+                        label:"No"
+                    }
+                ]}/>
             </Form.Item>
             <Form.Item label="Login Type">
-                <Input placeholder='Login Type'/>
+                <Select defaultValue="Select Login Type" onChange={handleChange} options={[
+                    {
+                        value:"admin",
+                        label:"Admin"
+                    },
+                    {
+                        value:"merchant",
+                        label:"Merchant"
+                    },
+                    {
+                        value:"reseller",
+                        label:"Reseller"
+                    },
+                    {
+                        value:"agent",
+                        label:"Agent"
+                    }
+                ]}/>
             </Form.Item>
             <Form.Item label="Merchant">
-                <Input placeholder='Merchant'/>
+                <Select defaultValue="Select Merchant" onChange={handleChange} options={[
+                    {
+                        value:"merchant1",
+                        label:"Merchant 1"
+                    },
+                    {
+                        value:"merchant2",
+                        label:"Merchant 2"
+                    }
+                ]}/>
             </Form.Item>
             <Form.Item label="Phone Number">
-                <Input placeholder='Phone Number'/>
+                <Input placeholder='Phone Number' type='number'/>
             </Form.Item>
             <Form.Item label="Agent Name">
                 <Input placeholder='Agent Name'/>
@@ -40,10 +78,32 @@ const ModalEdit = ({ isEditModalOpen, setIsEditModalOpen }) => {
                 <Input placeholder='Alias'/>
             </Form.Item>
             <Form.Item label="Login Status">
-                <Input placeholder='Login Status'/>
+                <Select defaultValue="Select Login Status" onChange={handleChange} options={[
+                    {
+                        value:"cp",
+                        label:"CP Login"
+                    },
+                    {
+                        value:"app",
+                        label:"APP Login"
+                    },
+                    {
+                        value:"cpapp",
+                        label:"CP & APP Login"
+                    }
+                ]}/>
             </Form.Item>
             <Form.Item label="Use Credit">
-                <Input placeholder='Use Credit'/>
+                <Select defaultValue="" onChange={handleChange} options={[
+                    {
+                        value:"yes",
+                        label:"Yes"
+                    },
+                    {
+                        value:"no",
+                        label:"No"
+                    }
+                ]}/>
             </Form.Item>
         </Form>
         <Form.Item label="CP Access">
