@@ -20,7 +20,6 @@ const Account = () => {
   };
 
   let { columns, records, isLoading,  setIsEditModalOpen, isEditModalOpen } = dataAccountTableData();
-
   return (
     <>
       <Button type="primary" onClick={handleAddNewClick}>

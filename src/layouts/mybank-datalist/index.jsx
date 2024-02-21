@@ -15,6 +15,7 @@ const MyBankDataList = () => {
     isLastTrxModalOpen,
     setIsLastTrxModalOpen
   } = dataListTableData()
+  console.log(records)
   return (
     <>
       <Table

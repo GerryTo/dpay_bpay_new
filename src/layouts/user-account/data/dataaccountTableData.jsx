@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TransactionByAccountHistory from '../../../tmpdata/account.json'
-import { Button, Space } from 'antd'
+import { Button, Space, Typography} from 'antd'
+import { apiGetUserList } from '../../../services/api'
 export const dataAccountTableData = () => {
 
   const [isLoading, setIsLoading] = useState(false)
@@ -8,35 +9,71 @@ export const dataAccountTableData = () => {
   const editModal = record => {
     setIsEditModalOpen(true)
   }
+  const [isData, setIsData] = useState([])
+  useEffect(()=>{getData()},[])
+  const getData = async () => {
+    try {
+      let params = {"merchant":null, "login_type":null}
+      const {data} = await apiGetUserList(JSON.stringify(params))
+      if (data.status === 'success'){
+        setIsData(data.data)
+      }
+      else{
+        console.log(data.status)
+      }
+
+    }
+    catch(e){console.log(e)}
+  }
 
   let tmpDataColumns = [
     {
-      dataIndex: 'login',
-      title: 'Login'
+      dataIndex: 'v_user',
+      key:'v_user',
+      title: 'login'
     },
     {
-      dataIndex: 'active',
+      dataIndex: 'v_active',
+      key:'v_active',
       title: 'Active'
     },
     {
-      dataIndex: 'type',
-      title: 'Type'
+      dataIndex: 'v_logintype',
+      key:'v_logintype',
+      title: 'Login Type'
     },
     {
-      dataIndex: 'merchant',
-      title: 'Merchant'
+      dataIndex: 'v_merchantcode',
+      key:'v_merchantcode',
+      title: 'Merchant',
+      render: record=>(
+        <Typography>{record === ''||record === null ? '-' : record}</Typography>
+      )
+      
     },
     {
-      dataIndex: 'phone_number',
-      title: 'Phone Number'
+      dataIndex: 'v_phonenumber',
+      key:'v_phonenumber',
+      title: 'Phone Number',
+      render: record=>(
+        <Typography>{record === ''||record === null ? '-' : record}</Typography>
+      )
     },
     {
-      dataIndex: 'agent',
-      title: 'Agent'
+      dataIndex: 'v_agentname',
+      key:'v_agentname',
+      title: 'Agent',
+      render: record=>(
+        <Typography>{record === ''||record === null ? '-' : record}</Typography>
+      )
     },
     {
-      dataIndex: 'alias',
-      title: 'Alias'
+      dataIndex: 'v_alias',
+      key:'v_alias',
+      title: 'Alias',
+      render: record=>(
+        <Typography>{record === ''||record === null ? '-' : record}</Typography>
+      )
     },
     {
       dataIndex: 'action',
@@ -53,7 +90,7 @@ export const dataAccountTableData = () => {
   ]
   return {
     columns: tmpDataColumns,
-    records: TransactionByAccountHistory,
+    records: isData,
     isEditModalOpen,
     setIsEditModalOpen
   }
