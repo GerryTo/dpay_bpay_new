@@ -26,6 +26,24 @@ export const dataAccountTableData = () => {
     catch(e){console.log(e)}
   }
 
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    const filteredData = isData.filter((record) =>
+      Object.values(record).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+    setFilteredData(filteredData);
+  };
+  const recordsToShow = searchQuery ? filteredData : isData;
+
+
+
   let tmpDataColumns = [
     {
       dataIndex: 'v_user',
@@ -90,9 +108,10 @@ export const dataAccountTableData = () => {
   ]
   return {
     columns: tmpDataColumns,
-    records: isData,
+    records: recordsToShow,
     isEditModalOpen,
-    setIsEditModalOpen
+    setIsEditModalOpen,
+    handleSearch
   }
 }
 

@@ -24,6 +24,28 @@ const dataListTableData = () => {
       console.log(e)
     }
   }
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    const filteredData = isData.filter((record) =>
+      Object.values(record).some(
+        (value) =>
+          typeof value === "string" &&
+          value.toLowerCase().includes(query.toLowerCase())
+      )
+    );
+    setFilteredData(filteredData);
+  };
+  const recordsToShow = searchQuery ? filteredData : isData;
+
+  
+  // Update useEffect to listen to changes in searchQuery
+  useEffect(() => {
+    handleSearch(searchQuery);
+  }, [searchQuery]);
+  
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [isLastTrxModalOpen, setIsLastTrxModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -119,14 +141,15 @@ const dataListTableData = () => {
 
   return {
     column: tmpDataColumn,
-    records: isData,
+    records: recordsToShow,
     isLoading,
     isEditModalOpen,
     setIsEditModalOpen,
     isRecord,
     setIsRecord,
     isLastTrxModalOpen,
-    setIsLastTrxModalOpen
+    setIsLastTrxModalOpen,
+    handleSearch
   }
 }
 
