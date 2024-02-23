@@ -27,3 +27,16 @@ export function apiGetUserList(params) {
     throw err
   }
 }
+
+export function apiGetDashboard(params) {
+  try {
+    const response = axios ({
+      method: 'post',
+      url: BASEURL + '/dashboard/summary',
+      data: params,
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
