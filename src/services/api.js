@@ -1,16 +1,39 @@
 import axios from 'axios'
 
-const BASEURL = 'https://test123domain.com/sispay/webservices'
+const BASEURL = 'http://localhost/backend-sispay-new-php/services'
 
-export function apiGetMybankList() {
+export function apiGetMybankList(params) {
   try {
     const response = axios({
       method: 'post',
-      url: BASEURL + '/getMasterMyBank.php',
-      data: {},
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-      }
+      url: BASEURL + '/mybank/list',
+      data : params,
+      })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetUserList(params) {
+  try {
+    const response = axios ({
+      method: 'post',
+      url: BASEURL + '/user-management/list',
+      data : params,
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetDashboard(params) {
+  try {
+    const response = axios ({
+      method: 'post',
+      url: BASEURL + '/dashboard/summary',
+      data: params,
     })
     return response
   } catch (err) {

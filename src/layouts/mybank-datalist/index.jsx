@@ -1,3 +1,4 @@
+import Search from 'antd/es/input/Search'
 import ModalEdit from './components/ModalEdit'
 import ModalLastTrx from './components/ModalLastTrx'
 import dataListTableData from './data/dataListTableData'
@@ -13,10 +14,13 @@ const MyBankDataList = () => {
     isRecord,
     setIsRecord,
     isLastTrxModalOpen,
-    setIsLastTrxModalOpen
+    setIsLastTrxModalOpen,
+    handleSearch
   } = dataListTableData()
+  console.log(records)
   return (
     <>
+      <Search placeholder='search' onSearch={handleSearch}/>
       <Table
         columns={column}
         dataSource={records}

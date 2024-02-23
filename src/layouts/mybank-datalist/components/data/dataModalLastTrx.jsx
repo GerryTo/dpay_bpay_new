@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 import a from '../../../../tmpdata/db.json'
+import { apiGetMybankList } from '../../../../services/api'
 export const dataModalLastTrx = () => {
-  
+
   let tmpDataColumns = [
     {
       dataIndex: 'futuretrx',

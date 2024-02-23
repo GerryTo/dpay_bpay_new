@@ -41,14 +41,16 @@ const Home = () => {
       </Header>
       <Layout
         style={{
-          minHeight: '100vh'
+          minHeight: '100vh',
         }}
       >
-        <Sider
+        <Sider 
+          width={300}
           theme="light"
           collapsible
           collapsed={collapsed}
           onCollapse={value => setCollapsed(value)}
+          className="sider-nav-custom"
         >
           <div className="demo-logo-vertical" />
           <Menu mode="inline" defaultSelectedKeys={['A']}>
@@ -99,7 +101,7 @@ const Home = () => {
                 padding: 24,
                 minHeight: 360,
                 borderRadius: '15px',
-                background: colorBgContainer
+                background: colorBgContainer,
               }}
             >
               <Routes>
