@@ -66,3 +66,16 @@ export function apiGetMyBankLimit() {
     throw err
   }
 }
+
+export function apiGetAgentCommission() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/agent/agent-commission-balance',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}

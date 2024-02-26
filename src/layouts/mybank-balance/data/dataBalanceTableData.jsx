@@ -32,7 +32,7 @@ const dataBalanceTableData = () => {
   const [totalBalance, setTotalBalance] = useState(0)
   useEffect(() => {
     if (records) {
-      let total = 0.0
+      let total = 0
       records.forEach(records => {
         total += parseFloat(records.current)
       })
