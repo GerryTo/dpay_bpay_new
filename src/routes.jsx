@@ -230,26 +230,20 @@ export const mockdataRoutes = [
         link: '/data-list'
       },
       {
-        label: 'Data List New',
-        key: 'C2',
-        element: '',
-        link: '/'
-      },
-      {
         label: 'Update MyBank',
-        key: 'C3',
+        key: 'C2',
         element: <MyBankUpdate />,
         link: '/bank-update'
       },
       {
         label: 'MyBank Balance',
-        key: 'C4',
+        key: 'C3',
         element: <MyBankBalance />,
         link: '/mybank-balance'
       },
       {
         label: 'MyBank Limit',
-        key: 'C5',
+        key: 'C4',
         element: <MyBankLimit />,
         link: '/mybank-limit'
       }

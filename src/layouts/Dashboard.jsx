@@ -9,7 +9,12 @@ const Dashboard = () => {
   const { RangePicker } = DatePicker
   const [records, setRecords] = useState([])
   const defValue = dayjs()
-
+  const formatCurrency = value => {
+    return new Intl.NumberFormat('en-MY', {
+      style: 'currency',
+      currency: 'MYR'
+    }).format(value)
+  }
   useEffect(() => {
     getData([defValue, defValue])
   }, [])
@@ -51,7 +56,7 @@ const Dashboard = () => {
               <Card title="Total Deposit" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={`RM ` + (records[0].TotalDeposit || 0)}
+                  description={formatCurrency(records[0].TotalDeposit || 0)}
                 />
               </Card>
             </Col>
@@ -59,7 +64,7 @@ const Dashboard = () => {
               <Card title="Total Withdraw" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={`RM ` + (records[0].TotalWithdraw || 0)}
+                  description={formatCurrency(records[0].TotalWithdraw || 0)}
                 />
               </Card>
             </Col>
@@ -67,7 +72,7 @@ const Dashboard = () => {
               <Card title="Total Deposit Fee" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={`RM ` + (records[0].TotalDepositFee || 0)}
+                  description={formatCurrency(records[0].TotalDepositFee || 0)}
                 />
               </Card>
             </Col>
@@ -75,7 +80,7 @@ const Dashboard = () => {
               <Card title="Total Withdraw Fee" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={`RM ` + (records[0].TotalWithdrawFee || 0)}
+                  description={formatCurrency(records[0].TotalWithdrawFee || 0)}
                 />
               </Card>
             </Col>
