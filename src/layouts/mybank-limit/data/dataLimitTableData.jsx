@@ -1,48 +1,102 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import a from '../../../tmpdata/banklimit.json'
+import { apiGetMyBankLimit } from '../../../services/api'
+import { Typography } from 'antd'
 
 const dataLimitTableData = () => {
   const [isLoading, setIsloading] = useState(false)
+  const [records, setRecords] = useState([])
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  async function getData() {
+    try {
+      setIsloading(true)
+      const { data } = await apiGetMyBankLimit()
+      const { status } = data
+      if (status === 'success') {
+        setIsloading(false)
+        setRecords(data.data)
+      } else {
+        setIsloading(false)
+        console.log(status)
+      }
+    } catch (e) {
+      setIsloading(false)
+      console.log(e)
+    }
+  }
+
+  const [filteredData, setFilteredData] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const handleSearch = query => {
+    setSearchQuery(query)
+    const filteredData = records.filter(record =>
+      Object.values(record).some(
+        value =>
+          typeof value === 'string' &&
+          value.toLowerCase().includes(query.toLowerCase())
+      )
+    )
+    setFilteredData(filteredData)
+  }
+  const recordsToShow = searchQuery ? filteredData : records
+
+  useEffect(() => {
+    handleSearch(searchQuery)
+  }, [searchQuery])
+
   let tmpDataColumn = [
     {
       title: 'Account No.',
-      dataIndex: 'acc_no',
-      key: 'acc_no'
+      dataIndex: 'v_bankaccountno',
+      key: 'v_bankaccountno'
     },
     {
       title: 'Account Name',
-      dataIndex: 'acc_name',
-      key: 'acc_name'
+      dataIndex: 'v_bankaccountname',
+      key: 'v_bankaccountname'
     },
     {
       title: 'Bank',
-      dataIndex: 'bank',
-      key: 'bank'
+      dataIndex: 'v_bankcode',
+      key: 'v_bankcode'
     },
     {
       title: 'Type',
-      dataIndex: 'type',
-      key: 'type'
+      dataIndex: 'v_type',
+      key: 'v_type'
     },
     {
       title: 'Is Active',
-      dataIndex: 'is_active',
-      key: 'is_active'
+      dataIndex: 'v_isactive',
+      key: 'v_isactive'
     },
     {
       title: 'Daily Deposit Limit',
-      dataIndex: 'daily_deposit_limit',
-      key: 'daily_deposit_limit'
+      dataIndex: 'n_dailydepositlimit',
+      key: 'n_dailydepositlimit'
     },
     {
       title: 'Current Transaction',
-      dataIndex: 'current_transaction',
-      key: 'current_transaction'
+      dataIndex: 'dailydeposit',
+      key: 'dailydeposit',
+      render: record => (
+        <>
+          <Typography>{record ? record : '0.00'}</Typography>
+        </>
+      )
     }
   ]
   return {
     column: tmpDataColumn,
-    records: a
+    records: recordsToShow,
+    setIsloading,
+    isLoading,
+    handleSearch
   }
 }
 

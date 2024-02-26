@@ -53,3 +53,16 @@ export function apiGetMyBankBalance() {
     throw err
   }
 }
+
+export function apiGetMyBankLimit() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/mybank/limit',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}

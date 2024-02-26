@@ -29,6 +29,17 @@ const dataBalanceTableData = () => {
     }
   }
 
+  const [totalBalance, setTotalBalance] = useState(0)
+  useEffect(() => {
+    if (records) {
+      let total = 0.0
+      records.forEach(records => {
+        total += parseFloat(records.current)
+      })
+      setTotalBalance(total)
+    }
+  }, [records])
+
   let tmpDataColumn = [
     {
       title: 'Account No.',
@@ -69,11 +80,11 @@ const dataBalanceTableData = () => {
       render: record => <Typography>{record ? record : '0'}</Typography>
     }
   ]
-  console.log(records)
   return {
     column: tmpDataColumn,
     isLoading: isLoading,
-    records: records
+    records: records,
+    totalBalance
   }
 }
 
