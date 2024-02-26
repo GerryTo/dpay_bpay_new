@@ -1,51 +1,53 @@
 import { useEffect, useState } from 'react'
 import a from '../../../tmpdata/datalist.json'
 import { Button, Space } from 'antd'
-import { blue, lime } from '@ant-design/colors';
-import axios from 'axios';
-import { apiGetMybankList } from '../../../services/api';
+import { blue, lime } from '@ant-design/colors'
+import axios from 'axios'
+import { apiGetMybankList } from '../../../services/api'
 const dataListTableData = () => {
   const [isData, setIsData] = useState([])
-  useEffect(()=>{
+  useEffect(() => {
     getData()
-  },[])  
+  }, [])
   const getData = async () => {
     try {
-      let params = {"bankAccNo":null, "bankCode":null}
+      let params = { bankAccNo: null, bankCode: null }
+      setIsLoading(true)
       const { data } = await apiGetMybankList(JSON.stringify(params))
-      if(data.status === 'success'){
-        setIsData(data.data);
-      }else{
-        console.log(data.status);
+      if (data.status === 'success') {
+        setIsLoading(false)
+        setIsData(data.data)
+      } else {
+        setIsLoading(false)
+        console.log(data.status)
       }
-      
-    }
-    catch(e) {
+    } catch (e) {
       console.log(e)
     }
   }
-  const [filteredData, setFilteredData] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredData, setFilteredData] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    const filteredData = isData.filter((record) =>
+  const handleSearch = query => {
+    setIsLoading(true)
+    setSearchQuery(query)
+    const filteredData = isData.filter(record =>
       Object.values(record).some(
-        (value) =>
-          typeof value === "string" &&
+        value =>
+          typeof value === 'string' &&
           value.toLowerCase().includes(query.toLowerCase())
       )
-    );
-    setFilteredData(filteredData);
-  };
-  const recordsToShow = searchQuery ? filteredData : isData;
+    )
+    setFilteredData(filteredData)
+    setIsLoading(false)
+  }
+  const recordsToShow = searchQuery ? filteredData : isData
 
-  
   // Update useEffect to listen to changes in searchQuery
   useEffect(() => {
-    handleSearch(searchQuery);
-  }, [searchQuery]);
-  
+    handleSearch(searchQuery)
+  }, [searchQuery])
+
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [isLastTrxModalOpen, setIsLastTrxModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -53,7 +55,7 @@ const dataListTableData = () => {
   const lasttrxModal = record => {
     setIsLastTrxModalOpen(true)
     setIsRecord(record)
-  } 
+  }
   const editModal = record => {
     setIsEditModalOpen(true)
     setIsRecord(record)
@@ -65,7 +67,7 @@ const dataListTableData = () => {
       key: 'v_groupname'
     },
     {
-      title: 'Alias', 
+      title: 'Alias',
       dataIndex: 'v_alias',
       key: 'v_alias'
     },
@@ -125,15 +127,18 @@ const dataListTableData = () => {
       key: 'action',
       render: record => (
         <>
-        <Space direction='horizontal'>
-        <Button type="primary" onClick={() => editModal(record)}>
-          Edit
-        </Button>
-        <Button style={{backgroundColor: "lime"}} onClick={() => lasttrxModal(record)}>
-          Last Trx
-        </Button>
-        <Button style={{backgroundColor:"gray"}}>More</Button>
-        </Space>
+          <Space direction="horizontal">
+            <Button type="primary" onClick={() => editModal(record)}>
+              Edit
+            </Button>
+            <Button
+              style={{ backgroundColor: 'lime' }}
+              onClick={() => lasttrxModal(record)}
+            >
+              Last Trx
+            </Button>
+            <Button style={{ backgroundColor: 'gray' }}>More</Button>
+          </Space>
         </>
       )
     }

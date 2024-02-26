@@ -4,6 +4,7 @@ import { Table } from 'antd'
 
 const MyBankBalance = () => {
   let { column, records, isLoading } = dataBalanceTableData()
+  console.log(records)
   return (
     <Table
       columns={column}

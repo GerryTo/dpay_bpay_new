@@ -20,7 +20,7 @@ const MyBankDataList = () => {
   console.log(records)
   return (
     <>
-      <Search placeholder='search' onSearch={handleSearch}/>
+      <Search placeholder="search" onSearch={handleSearch} />
       <Table
         columns={column}
         dataSource={records}
@@ -36,7 +36,7 @@ const MyBankDataList = () => {
         />
       )}
       {isLastTrxModalOpen && (
-        <ModalLastTrx 
+        <ModalLastTrx
           setIsLastTrxModalOpen={setIsLastTrxModalOpen}
           isLastTrxModalOpen={isLastTrxModalOpen}
         />

@@ -7,8 +7,8 @@ export function apiGetMybankList(params) {
     const response = axios({
       method: 'post',
       url: BASEURL + '/mybank/list',
-      data : params,
-      })
+      data: params
+    })
     return response
   } catch (err) {
     throw err
@@ -17,10 +17,10 @@ export function apiGetMybankList(params) {
 
 export function apiGetUserList(params) {
   try {
-    const response = axios ({
+    const response = axios({
       method: 'post',
       url: BASEURL + '/user-management/list',
-      data : params,
+      data: params
     })
     return response
   } catch (err) {
@@ -30,10 +30,23 @@ export function apiGetUserList(params) {
 
 export function apiGetDashboard(params) {
   try {
-    const response = axios ({
+    const response = axios({
       method: 'post',
       url: BASEURL + '/dashboard/summary',
-      data: params,
+      data: params
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetMyBankBalance() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/mybank/balance',
+      data: {}
     })
     return response
   } catch (err) {
