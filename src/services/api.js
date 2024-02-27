@@ -79,3 +79,16 @@ export function apiGetAgentCommission() {
     throw err
   }
 }
+
+export function apiGetAgentCommissionSettlement(params) {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/agent/commission-settlement',
+      data: params
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}

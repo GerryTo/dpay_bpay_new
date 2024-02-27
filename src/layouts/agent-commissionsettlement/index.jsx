@@ -3,11 +3,24 @@ import dataAgentCommissionSettlementTableData from './data/dataAgentCommissionSe
 import { DatePicker, Table } from 'antd'
 
 const AgentCommissionSettlement = () => {
-  let { column, records, isLoading } = dataAgentCommissionSettlementTableData()
+  let {
+    column,
+    records,
+    isLoading,
+    handlerDatePicker,
+    valueDateRange,
+    defValue
+  } = dataAgentCommissionSettlementTableData()
   const { RangePicker } = DatePicker
+  console.log(records)
   return (
     <>
-      <RangePicker />
+      <RangePicker
+        defaultValue={[defValue, defValue]}
+        onChange={value => {
+          handlerDatePicker(value[0], value[1])
+        }}
+      />
       <Table
         dataSource={records}
         columns={column}

@@ -19,10 +19,13 @@ const MyBankBalance = () => {
         scroll={{ x: 10 }}
         summary={() => (
           <Table.Summary.Row>
-            <Table.Summary.Cell index={0}>Total</Table.Summary.Cell>
-            <Table.Summary.Cell index={1} colSpan={2}></Table.Summary.Cell>
+            <Table.Summary.Cell index={0} colSpan={3} align="right">
+              <b>Total</b>
+            </Table.Summary.Cell>
             <Table.Summary.Cell index={3}>
-              <Typography>{formatCurrency(totalBalance)}</Typography>
+              <Typography>
+                <b>{formatCurrency(totalBalance)}</b>
+              </Typography>
             </Table.Summary.Cell>
             {/* Adjust colSpan based on the number of other columns */}
             <Table.Summary.Cell index={5} colSpan={2}></Table.Summary.Cell>
