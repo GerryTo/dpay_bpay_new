@@ -33,6 +33,7 @@ const dataLimitTableData = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleSearch = query => {
+    setIsloading(true)
     setSearchQuery(query)
     const filteredData = records.filter(record =>
       Object.values(record).some(
@@ -41,6 +42,7 @@ const dataLimitTableData = () => {
           value.toLowerCase().includes(query.toLowerCase())
       )
     )
+    setIsloading(false)
     setFilteredData(filteredData)
   }
   const recordsToShow = searchQuery ? filteredData : records

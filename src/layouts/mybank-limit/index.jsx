@@ -4,8 +4,7 @@ import { Table } from 'antd'
 import Search from 'antd/es/input/Search'
 
 const MyBankLimit = () => {
-  let { column, records, isLoading, handleSearch, setIsloading } =
-    dataLimitTableData()
+  let { column, records, isLoading, handleSearch } = dataLimitTableData()
   return (
     <>
       <Search placeholder="search" onSearch={handleSearch} />

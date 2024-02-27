@@ -2,7 +2,7 @@ import Search from 'antd/es/input/Search'
 import ModalEdit from './components/ModalEdit'
 import ModalLastTrx from './components/ModalLastTrx'
 import dataListTableData from './data/dataListTableData'
-import { Table } from 'antd'
+import { Button, Space, Table } from 'antd'
 
 const MyBankDataList = () => {
   let {
@@ -15,12 +15,18 @@ const MyBankDataList = () => {
     setIsRecord,
     isLastTrxModalOpen,
     setIsLastTrxModalOpen,
-    handleSearch
+    handleSearch,
+    handleRefresh,
+    loading
   } = dataListTableData()
-  console.log(records)
   return (
     <>
-      <Search placeholder="search" onSearch={handleSearch} />
+      <Space direction="horizontal">
+        <Button type="primary" onClick={handleRefresh}>
+          Refresh
+        </Button>
+        <Search placeholder="search" onSearch={handleSearch} />
+      </Space>
       <Table
         columns={column}
         dataSource={records}
