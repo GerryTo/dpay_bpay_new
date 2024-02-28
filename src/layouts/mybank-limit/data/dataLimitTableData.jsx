@@ -6,11 +6,17 @@ import { Typography } from 'antd'
 const dataLimitTableData = () => {
   const [isLoading, setIsloading] = useState(false)
   const [records, setRecords] = useState([])
+  const [filteredData, setFilteredData] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchColumn, setSearchColumn] = useState('all')
 
   useEffect(() => {
     getData()
   }, [])
 
+  const handleRefresh = () => {
+    getData()
+  }
   async function getData() {
     try {
       setIsloading(true)
@@ -29,24 +35,31 @@ const dataLimitTableData = () => {
     }
   }
 
-  const [filteredData, setFilteredData] = useState([])
-  const [searchQuery, setSearchQuery] = useState('')
-
   const handleSearch = query => {
     setIsloading(true)
     setSearchQuery(query)
-    const filteredData = records.filter(record =>
-      Object.values(record).some(
-        value =>
-          typeof value === 'string' &&
-          value.toLowerCase().includes(query.toLowerCase())
-      )
-    )
+    const filteredData = records.filter(record => {
+      if (searchColumn === 'all') {
+        return Object.values(record).some(
+          value =>
+            typeof value === 'string' &&
+            value.toLowerCase().includes(query.toLowerCase())
+        )
+      } else {
+        return (
+          typeof record[searchColumn] === 'string' &&
+          record[searchColumn].toLowerCase().includes(query.toLowerCase())
+        )
+      }
+    })
     setIsloading(false)
     setFilteredData(filteredData)
   }
-  const recordsToShow = searchQuery ? filteredData : records
+  const handleColumnChange = value => {
+    setSearchColumn(value)
+  }
 
+  const recordsToShow = searchQuery ? filteredData : records
   useEffect(() => {
     handleSearch(searchQuery)
   }, [searchQuery])
@@ -98,6 +111,11 @@ const dataLimitTableData = () => {
     records: recordsToShow,
     setIsloading,
     isLoading,
+    handleColumnChange,
+    searchColumn,
+    handleRefresh,
+    searchQuery,
+    handleColumnChange,
     handleSearch
   }
 }

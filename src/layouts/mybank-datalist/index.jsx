@@ -4,8 +4,6 @@ import ModalLastTrx from './components/ModalLastTrx'
 import dataListTableData from './data/dataListTableData'
 import { Button, Input, Select, Space, Table } from 'antd'
 
-const { option } = Select
-
 const MyBankDataList = () => {
   let {
     column,
