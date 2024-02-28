@@ -130,6 +130,7 @@ import CrawlerAutomationFailed from './layouts/crawler-automationfailed'
 import CrawlerAutomationWithdrawal from './layouts/crawler-automationwithdrawal'
 import Settlement from './layouts/settlement'
 import SettlementTopup from './layouts/settlement-topup'
+import AgentCreditAdjustment from './layouts/agent-creditadjustment'
 
 export const mockdataRoutes = [
   {
@@ -369,6 +370,12 @@ export const mockdataRoutes = [
         key: 'F6',
         element: <AgentReportTransaction />,
         link: '/agent-reporttransaction'
+      },
+      {
+        label: 'Agent Credit Adjustment',
+        key: 'F7',
+        element: <AgentCreditAdjustment />,
+        link: '/agent-creditadjustment'
       }
     ]
   },
