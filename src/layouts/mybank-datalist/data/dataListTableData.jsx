@@ -12,6 +12,7 @@ const dataListTableData = () => {
   const [isData, setIsData] = useState([])
   const [filteredData, setFilteredData] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchColumn, setSearchColumn] = useState('all')
   const handleRefresh = () => {
     getData()
   }
@@ -38,15 +39,26 @@ const dataListTableData = () => {
   const handleSearch = query => {
     setIsLoading(true)
     setSearchQuery(query)
-    const filteredData = isData.filter(record =>
-      Object.values(record).some(
-        value =>
-          typeof value === 'string' &&
-          value.toLowerCase().includes(query.toLowerCase())
-      )
-    )
+    const filteredData = isData.filter(record => {
+      if (searchColumn === 'all') {
+        return Object.values(record).some(
+          value =>
+            typeof value === 'string' &&
+            value.toLowerCase().includes(query.toLowerCase())
+        )
+      } else {
+        return (
+          typeof record[searchColumn] === 'string' &&
+          record[searchColumn].toLowerCase().includes(query.toLowerCase())
+        )
+      }
+    })
     setFilteredData(filteredData)
     setIsLoading(false)
+  }
+
+  const handleColumnChange = value => {
+    setSearchColumn(value)
   }
   const recordsToShow = searchQuery ? filteredData : isData
 
@@ -218,7 +230,10 @@ const dataListTableData = () => {
     isLastTrxModalOpen,
     setIsLastTrxModalOpen,
     handleSearch,
-    handleRefresh
+    handleRefresh,
+    handleColumnChange,
+    searchQuery,
+    searchColumn
   }
 }
 
