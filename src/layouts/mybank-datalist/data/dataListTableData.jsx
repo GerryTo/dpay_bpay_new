@@ -21,8 +21,8 @@ const dataListTableData = () => {
   }, [])
   const getData = async () => {
     try {
-      let params = { bankAccNo: null, bankCode: null }
       setIsLoading(true)
+      let params = { bankAccNo: null, bankCode: null }
       const { data } = await apiGetMybankList(JSON.stringify(params))
       if (data.status === 'success') {
         setIsLoading(false)
@@ -222,6 +222,7 @@ const dataListTableData = () => {
   return {
     column: tmpDataColumn,
     records: recordsToShow,
+    setIsLoading,
     isLoading,
     isEditModalOpen,
     setIsEditModalOpen,

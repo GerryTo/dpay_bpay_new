@@ -10,6 +10,7 @@ const MyBankDataList = () => {
   let {
     column,
     records,
+    setIsLoading,
     isLoading,
     isEditModalOpen,
     setIsEditModalOpen,

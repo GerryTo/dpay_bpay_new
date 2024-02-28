@@ -92,3 +92,16 @@ export function apiGetAgentCommissionSettlement(params) {
     throw err
   }
 }
+
+export function apiGetAgentCreditBalance() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/agent/credit-balance',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}

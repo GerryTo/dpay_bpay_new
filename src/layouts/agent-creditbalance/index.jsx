@@ -5,7 +5,16 @@ import ModalAdjustIn from './components/ModalAdjustIn'
 import ModalAdjustOut from './components/ModalAdjustOut'
 
 const AgentCreditBalance = () => {
-  let { column, records, isLoading, isAdjustInModalOpen, setIsAdjustInModalOpen, isAdjustOutModalOpen, setIsAdjustOutModalOpen } = dataAgentCreditBalanceTableData()
+  let {
+    column,
+    records,
+    isLoading,
+    isAdjustInModalOpen,
+    setIsAdjustInModalOpen,
+    isAdjustOutModalOpen,
+    setIsAdjustOutModalOpen
+  } = dataAgentCreditBalanceTableData()
+  console.log(records)
   return (
     <>
       <Table
@@ -14,8 +23,14 @@ const AgentCreditBalance = () => {
         loading={isLoading}
         scroll={{ x: 10 }}
       />
-      <ModalAdjustIn setIsAdjustInModalOpen={setIsAdjustInModalOpen} isAdjustInModalOpen={isAdjustInModalOpen}/>
-      <ModalAdjustOut setIsAdjustOutModalOpen={setIsAdjustOutModalOpen} isAdjustOutModalOpen={isAdjustOutModalOpen}/>
+      <ModalAdjustIn
+        setIsAdjustInModalOpen={setIsAdjustInModalOpen}
+        isAdjustInModalOpen={isAdjustInModalOpen}
+      />
+      <ModalAdjustOut
+        setIsAdjustOutModalOpen={setIsAdjustOutModalOpen}
+        isAdjustOutModalOpen={isAdjustOutModalOpen}
+      />
     </>
   )
 }

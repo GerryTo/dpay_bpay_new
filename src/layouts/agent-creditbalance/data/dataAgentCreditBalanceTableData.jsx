@@ -1,10 +1,34 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import a from '../../../tmpdata/agentcreditbalance.json'
 import { Button, Space } from 'antd'
+import { apiGetAgentCreditBalance } from '../../../services/api'
 const dataAgentCreditBalanceTableData = () => {
   const [isAdjustInModalOpen, setIsAdjustInModalOpen] = useState(false)
   const [isAdjustOutModalOpen, setIsAdjustOutModalOpen] = useState(false)
-  const adjustinModal= record => {
+  const [records, setRecords] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  async function getData() {
+    try {
+      setIsLoading(true)
+      const { data } = await apiGetAgentCreditBalance()
+      const { status } = data
+      if (status === 'success') {
+        setIsLoading(false)
+        setRecords(data.data)
+      } else {
+        setIsLoading(false)
+        console.log(status)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  const adjustinModal = record => {
     setIsAdjustInModalOpen(true)
   }
   const adjustoutModal = record => {
@@ -13,8 +37,8 @@ const dataAgentCreditBalanceTableData = () => {
   let tmpDataColumn = [
     {
       title: 'Agent',
-      dataIndex: 'agent',
-      key: 'agent'
+      dataIndex: 'user',
+      key: 'user'
     },
     {
       title: 'Name',
@@ -28,8 +52,8 @@ const dataAgentCreditBalanceTableData = () => {
     },
     {
       title: 'Active',
-      dataIndex: 'active',
-      key: 'active'
+      dataIndex: 'isActive',
+      key: 'isActive'
     },
     {
       title: 'Nagad',
@@ -52,15 +76,30 @@ const dataAgentCreditBalanceTableData = () => {
       key: 'action',
       render: record => (
         <>
-        <Space direction='horizontal'>
-        <Button type='primary' onClick={() => adjustinModal(record)}>Adjust In</Button>
-        <Button style={{backgroundColor:"yellow"}} onClick={() => adjustoutModal(record)}>Adjust Out</Button>
-        </Space>
+          <Space direction="horizontal">
+            <Button type="primary" onClick={() => adjustinModal(record)}>
+              Adjust In
+            </Button>
+            <Button
+              style={{ backgroundColor: 'yellow' }}
+              onClick={() => adjustoutModal(record)}
+            >
+              Adjust Out
+            </Button>
+          </Space>
         </>
       )
     }
   ]
-  return { column: tmpDataColumn, records: a, isAdjustInModalOpen, setIsAdjustInModalOpen, isAdjustOutModalOpen, setIsAdjustOutModalOpen }
+  return {
+    column: tmpDataColumn,
+    records: records,
+    isAdjustInModalOpen,
+    setIsAdjustInModalOpen,
+    isAdjustOutModalOpen,
+    setIsAdjustOutModalOpen,
+    isLoading
+  }
 }
 
 export default dataAgentCreditBalanceTableData
