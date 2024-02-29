@@ -7,8 +7,6 @@ import dayjs from 'dayjs'
 const dataAgentCommissionSettlementTableData = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [records, setRecords] = useState([])
-  const [to, setTo] = useState('')
-  const [from, setFrom] = useState('')
   const [valueDateRange, setValueDateRange] = useState([null, null])
 
   const defValue = dayjs()

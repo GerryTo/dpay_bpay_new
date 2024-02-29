@@ -106,12 +106,12 @@ export function apiGetAgentCreditBalance() {
   }
 }
 
-export function apiGetAgentCreditAdjustment() {
+export function apiGetAgentCreditAdjustment(params) {
   try {
     const response = axios({
       method: 'post',
       url: BASEURL + '/agent/credit-adjustment',
-      data: {}
+      data: params
     })
     return response
   } catch (err) {

@@ -218,7 +218,6 @@ const dataListTableData = () => {
       )
     }
   ]
-
   return {
     column: tmpDataColumn,
     records: recordsToShow,
