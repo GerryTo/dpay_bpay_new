@@ -8,7 +8,6 @@ const MyBankDataList = () => {
   let {
     column,
     records,
-    setIsLoading,
     isLoading,
     isEditModalOpen,
     setIsEditModalOpen,
@@ -25,9 +24,6 @@ const MyBankDataList = () => {
   return (
     <>
       <Space direction="horizontal">
-        <Button type="primary" onClick={handleRefresh}>
-          Refresh
-        </Button>
         <Select
           value={searchColumn}
           onChange={handleColumnChange}
@@ -51,6 +47,9 @@ const MyBankDataList = () => {
           value={searchQuery}
           onChange={e => handleSearch(e.target.value)}
         />
+        <Button type="primary" onClick={handleRefresh}>
+          Refresh
+        </Button>
       </Space>
       <Table
         columns={column}
@@ -62,7 +61,6 @@ const MyBankDataList = () => {
         <ModalEdit
           setIsEditModalOpen={setIsEditModalOpen}
           isEditModalOpen={isEditModalOpen}
-          setIsRecord={setIsRecord}
           isRecord={isRecord}
         />
       )}

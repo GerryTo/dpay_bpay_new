@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
-import a from '../../../tmpdata/datalist.json'
 import { Button, Space, Typography } from 'antd'
-import { blue, lime } from '@ant-design/colors'
-import axios from 'axios'
 import { apiGetMybankList } from '../../../services/api'
+
 const dataListTableData = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [isLastTrxModalOpen, setIsLastTrxModalOpen] = useState(false)
@@ -13,12 +11,15 @@ const dataListTableData = () => {
   const [filteredData, setFilteredData] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [searchColumn, setSearchColumn] = useState('all')
+
   const handleRefresh = () => {
     getData()
   }
+
   useEffect(() => {
     getData()
   }, [])
+
   const getData = async () => {
     try {
       setIsLoading(true)
@@ -26,12 +27,18 @@ const dataListTableData = () => {
       const { data } = await apiGetMybankList(JSON.stringify(params))
       if (data.status === 'success') {
         setIsLoading(false)
-        setIsData(data.data)
+        // Assign unique keys to each record
+        const newData = data.data.map((record, index) => ({
+          ...record,
+          key: index // You can replace this with a unique identifier from your data if available
+        }))
+        setIsData(newData)
       } else {
         setIsLoading(false)
         console.log(data.status)
       }
     } catch (e) {
+      setIsLoading(false)
       console.log(e)
     }
   }
@@ -60,9 +67,9 @@ const dataListTableData = () => {
   const handleColumnChange = value => {
     setSearchColumn(value)
   }
+
   const recordsToShow = searchQuery ? filteredData : isData
 
-  // Update useEffect to listen to changes in searchQuery
   useEffect(() => {
     handleSearch(searchQuery)
   }, [searchQuery])
@@ -71,6 +78,7 @@ const dataListTableData = () => {
     setIsLastTrxModalOpen(true)
     setIsRecord(record)
   }
+
   const editModal = record => {
     setIsEditModalOpen(true)
     setIsRecord(record)

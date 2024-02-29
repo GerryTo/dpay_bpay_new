@@ -21,6 +21,7 @@ const dataAgentCommissionSettlementTableData = () => {
   }, [valueDateRange])
   async function getData(from, to) {
     try {
+      setIsLoading(true)
       const params = {
         from: from.format('YYYY-MM-DD') + ' 00:00:00',
         to: to.format('YYYY-MM-DD') + ' 23:59:59'

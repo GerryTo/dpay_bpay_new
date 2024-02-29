@@ -131,6 +131,7 @@ import CrawlerAutomationWithdrawal from './layouts/crawler-automationwithdrawal'
 import Settlement from './layouts/settlement'
 import SettlementTopup from './layouts/settlement-topup'
 import AgentCreditAdjustment from './layouts/agent-creditadjustment'
+import MyBankUpdateSelected from './layouts/mybank-updateselected'
 
 export const mockdataRoutes = [
   {
@@ -247,6 +248,12 @@ export const mockdataRoutes = [
         key: 'C4',
         element: <MyBankLimit />,
         link: '/mybank-limit'
+      },
+      {
+        label: 'MyBank Update Selected',
+        key: 'C5',
+        element: <MyBankUpdateSelected />,
+        link: '/mybank-updateselected'
       }
     ]
   },

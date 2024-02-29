@@ -131,3 +131,16 @@ export function apiGetAgentCreditRequest(params) {
     throw err
   }
 }
+
+export function apiGetMyBankUpdateSelected(params) {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/mybank/update-selected',
+      data: params
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
