@@ -118,3 +118,16 @@ export function apiGetAgentCreditAdjustment(params) {
     throw err
   }
 }
+
+export function apiGetAgentCreditRequest(params) {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/agent/credit-request-list',
+      data: params
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
