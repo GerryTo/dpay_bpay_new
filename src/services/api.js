@@ -144,3 +144,16 @@ export function apiGetMyBankUpdateSelected(params) {
     throw err
   }
 }
+
+export function apiGetMerchantList() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/merchant/list',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}

@@ -206,12 +206,10 @@ const dataListTableData = () => {
     },
     {
       title: 'Action',
-      dataIndex: 'action',
-      key: 'action',
       render: record => (
         <>
           <Space direction="horizontal">
-            <Button type="primary" onClick={() => editModal(record)}>
+            <Button type="primary" onClick={record => editModal(record)}>
               Edit
             </Button>
             <Button

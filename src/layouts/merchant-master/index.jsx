@@ -9,18 +9,28 @@ const MerchantMaster = () => {
   const addnewModal = record => {
     setIsAddNewModalOpen(true)
   }
-  let { column, records, isLoading, isEditModalOpen, setIsEditModalOpen } = dataMerchantMasterTableData()
+  let { column, records, isLoading, isEditModalOpen, setIsEditModalOpen } =
+    dataMerchantMasterTableData()
+  console.log(records)
   return (
     <>
-      <Button type="primary" onClick={addnewModal}>Add New</Button>
+      <Button type="primary" onClick={addnewModal}>
+        Add New
+      </Button>
       <Table
         dataSource={records}
         columns={column}
         loading={isLoading}
         scroll={{ x: 10 }}
       />
-      <ModalEdit setIsEditModalOpen={setIsEditModalOpen} isEditModalOpen={isEditModalOpen}/>
-      <ModalAddNew setIsAddNewModalOpen={setIsAddNewModalOpen} isAddNewModalOpen={isAddNewModalOpen}/>
+      <ModalEdit
+        setIsEditModalOpen={setIsEditModalOpen}
+        isEditModalOpen={isEditModalOpen}
+      />
+      <ModalAddNew
+        setIsAddNewModalOpen={setIsAddNewModalOpen}
+        isAddNewModalOpen={isAddNewModalOpen}
+      />
     </>
   )
 }
