@@ -1,67 +1,93 @@
-import React, { useState } from 'react'
-import a from '../../../tmpdata/merchantbankaccount.json'
+import React, { useEffect, useState } from 'react'
+import { apiGetMerchantAcc } from '../../../services/api'
 const dataMerchantBankAccountTableData = () => {
   const [isLoading, setIsloading] = useState(false)
+  const [records, setRecords] = useState([])
+  const [merchant, setMerchant] = useState('BB88')
+  useEffect(() => {
+    getData()
+  }, [])
+
+  async function getData() {
+    try {
+      setIsloading(true)
+      let params = {
+        merchant: merchant
+      }
+      const { data } = await apiGetMerchantAcc(JSON.stringify(params))
+      if (data.status === 'success') {
+        setIsloading(false)
+        setRecords(data.data)
+      } else {
+        setIsloading(false)
+        console.log(data.status)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   let tmpDataColumn = [
     {
       title: 'Alias',
-      dataIndex: 'alias',
-      key: 'alias'
+      dataIndex: 'v_alias',
+      key: 'v_alias'
     },
     {
       title: 'Account No.',
-      dataIndex: 'account_no',
-      key: 'account_no'
+      dataIndex: 'v_bankaccountno',
+      key: 'v_bankaccountno'
     },
     {
       title: 'Account Name',
-      dataIndex: 'account_name',
-      key: 'account_name'
+      dataIndex: 'v_bankaccountname',
+      key: 'v_bankaccountname'
     },
     {
       title: 'Bank',
-      dataIndex: 'bank',
-      key: 'bank'
+      dataIndex: 'v_bankcode',
+      key: 'v_bankcode'
     },
     {
       title: 'Login',
-      dataIndex: 'login',
-      key: 'login'
+      dataIndex: 'v_userlogin',
+      key: 'v_userlogin'
     },
     {
       title: 'Type',
-      dataIndex: 'type',
-      key: 'type'
+      dataIndex: 'v_type',
+      key: 'v_type'
     },
     {
       title: 'Active',
-      dataIndex: 'active',
-      key: 'active'
+      dataIndex: 'v_isactive',
+      key: 'v_isactive'
     },
     {
       title: 'Locked',
-      dataIndex: 'locked',
-      key: 'locked'
+      dataIndex: 'n_islocked',
+      key: 'n_islocked'
     },
     {
       title: 'Last Used',
-      dataIndex: 'last_used',
-      key: 'last_used'
+      dataIndex: 'd_lastused',
+      key: 'd_lastused'
     },
     {
       title: 'Agent Commission',
-      dataIndex: 'agent_commission',
-      key: 'agent_commission'
+      dataIndex: 'n_agentCommission',
+      key: 'n_agentCommission'
     },
     {
       title: 'Group ID',
-      dataIndex: 'group_id',
-      key: 'group_id'
+      dataIndex: 'n_groupid',
+      key: 'n_groupid'
     }
   ]
   return {
     column: tmpDataColumn,
-    records: a
+    records,
+    isLoading
   }
 }
 

@@ -41,6 +41,19 @@ export function apiGetDashboard(params) {
   }
 }
 
+export function apiGetMyBankActive() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/dashboard/mybank-active',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
 export function apiGetMyBankBalance() {
   try {
     const response = axios({
@@ -151,6 +164,19 @@ export function apiGetMerchantList() {
       method: 'post',
       url: BASEURL + '/merchant/list',
       data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetMerchantAcc(params) {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/merchant/merchant-bank-account',
+      data: params
     })
     return response
   } catch (err) {

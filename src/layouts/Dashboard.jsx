@@ -1,13 +1,27 @@
 import { Card, Col, DatePicker, Row, Space, Typography } from 'antd'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
-import { apiGetDashboard } from '../services/api'
+import { apiGetDashboard, apiGetMyBankActive } from '../services/api'
 import Meta from 'antd/es/card/Meta'
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from 'recharts'
+import CountUp from 'react-countup'
+import { Link } from 'react-router-dom'
+import { ArrowRightOutlined } from '@ant-design/icons'
 
 const Dashboard = () => {
   const { Title } = Typography
   const { RangePicker } = DatePicker
   const [records, setRecords] = useState([])
+  const [chartData, setChartData] = useState([])
+  const [myBank, setMyBank] = useState([])
   const defValue = dayjs()
   const formatCurrency = value => {
     return new Intl.NumberFormat('en-MY', {
@@ -16,13 +30,21 @@ const Dashboard = () => {
     }).format(value)
   }
   useEffect(() => {
+    fetchDataByDay()
+  }, [])
+  useEffect(() => {
+    getMyBankActive()
+  }, [])
+  useEffect(() => {
     getData([defValue, defValue])
   }, [])
 
   async function getData(date) {
     try {
-      const dateFrom = dayjs(date[0]).format('YYYY-MM-DD')
-      const dateTo = dayjs(date[1]).format('YYYY-MM-DD')
+      const dateFrom = dayjs(date[0])
+        .startOf('day')
+        .format('YYYY-MM-DD HH:mm:ss')
+      const dateTo = dayjs(date[1]).format('YYYY-MM-DD HH:mm:ss')
       const params = {
         dateto: dateTo,
         datefrom: dateFrom
@@ -31,6 +53,78 @@ const Dashboard = () => {
       const { status } = data
       if (status === 'success') {
         setRecords(data.data)
+      } else {
+        console.log(status)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  async function fetchDataByDay() {
+    const currentDate = dayjs()
+    const currentYear = currentDate.year()
+    const currentMonth = currentDate.month()
+
+    const promises = []
+
+    for (let day = 1; day <= currentDate.date(); day++) {
+      const startDate = dayjs()
+        .year(currentYear)
+        .month(currentMonth)
+        .date(day)
+        .startOf('day')
+      const endDate = dayjs()
+        .year(currentYear)
+        .month(currentMonth)
+        .date(day)
+        .endOf('day')
+
+      const params = {
+        datefrom: startDate.format('YYYY-MM-DD HH:mm:ss'),
+        dateto: endDate.format('YYYY-MM-DD HH:mm:ss')
+      }
+
+      promises.push(apiGetDashboard(JSON.stringify(params)))
+    }
+
+    try {
+      const responses = await Promise.all(promises)
+
+      const aggregatedData = responses.reduce((acc, response) => {
+        const { data } = response
+        if (data.status === 'success') {
+          data.data.forEach(item => {
+            acc.push({
+              date: dayjs(item.date).format('MMM DD, YYYY'),
+              ...item
+            })
+          })
+        }
+        return acc
+      }, [])
+
+      setRecords(aggregatedData)
+      const chartData = aggregatedData.map(item => {
+        return {
+          date: dayjs(item.date).format('MMM DD, YYYY'),
+          totalDeposit: item.TotalDeposit || 0,
+          totalWithdraw: item.TotalWithdraw || 0,
+          totalDepositFee: item.TotalDepositFee || 0,
+          totalWithdrawFee: item.TotalWithdrawFee || 0
+        }
+      })
+
+      setChartData(chartData)
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    }
+  }
+  async function getMyBankActive() {
+    try {
+      const { data } = await apiGetMyBankActive()
+      const { status } = data
+      if (status === 'success') {
+        setMyBank(data.data)
       } else {
         console.log(status)
       }
@@ -55,8 +149,26 @@ const Dashboard = () => {
             <Col span={6}>
               <Card title="Total Deposit" bordered={false}>
                 <Meta
-                  style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={formatCurrency(records[0].TotalDeposit || 0)}
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: '1.5rem'
+                  }}
+                  description={
+                    <span
+                      style={{
+                        color: '#8884d8'
+                      }}
+                    >
+                      <CountUp
+                        start={0}
+                        end={records[0]?.TotalDeposit || 0}
+                        duration={2}
+                        separator=","
+                        decimals={2}
+                        prefix="RM "
+                      />
+                    </span>
+                  }
                 />
               </Card>
             </Col>
@@ -64,7 +176,22 @@ const Dashboard = () => {
               <Card title="Total Withdraw" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={formatCurrency(records[0].TotalWithdraw || 0)}
+                  description={
+                    <span
+                      style={{
+                        color: '#ff0000'
+                      }}
+                    >
+                      <CountUp
+                        start={0}
+                        end={records[0]?.TotalWithdraw || 0}
+                        duration={2}
+                        separator=","
+                        decimals={2}
+                        prefix="RM "
+                      />
+                    </span>
+                  }
                 />
               </Card>
             </Col>
@@ -72,7 +199,22 @@ const Dashboard = () => {
               <Card title="Total Deposit Fee" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={formatCurrency(records[0].TotalDepositFee || 0)}
+                  description={
+                    <span
+                      style={{
+                        color: '#8a2be2'
+                      }}
+                    >
+                      <CountUp
+                        start={0}
+                        end={records[0]?.TotalDepositFee || 0}
+                        duration={2}
+                        separator=","
+                        decimals={2}
+                        prefix="RM "
+                      />
+                    </span>
+                  }
                 />
               </Card>
             </Col>
@@ -80,12 +222,150 @@ const Dashboard = () => {
               <Card title="Total Withdraw Fee" bordered={false}>
                 <Meta
                   style={{ fontWeight: 'bold', fontSize: '1.5rem' }}
-                  description={formatCurrency(records[0].TotalWithdrawFee || 0)}
+                  description={
+                    <span
+                      style={{
+                        color: '#82ca9d'
+                      }}
+                    >
+                      <CountUp
+                        start={0}
+                        end={records[0]?.TotalWithdrawFee || 0}
+                        duration={2}
+                        separator=","
+                        decimals={2}
+                        prefix="RM "
+                      />
+                    </span>
+                  }
                 />
               </Card>
             </Col>
           </>
         )}
+      </Row>
+      {records.length > 0 && (
+        <Row>
+          <Col span={24}>
+            <LineChart width={1000} height={400} data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="date" />
+              <YAxis
+                tick={{ fontSize: 10 }}
+                width={120}
+                tickFormatter={value =>
+                  `RM ${value.toLocaleString('en-MY', {})}`
+                }
+                domain={[
+                  0,
+                  Math.max(...chartData.map(entry => entry.totalDeposit))
+                ]}
+              />
+
+              <Tooltip formatter={value => formatCurrency(value)} />
+              <Legend />
+              <Line
+                type="monotone"
+                dataKey="totalDeposit"
+                name="Total Deposit"
+                stroke="#8884d8"
+                activeDot={{ r: 8 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="totalWithdraw"
+                name="Total Withdraw"
+                stroke="#ff0000"
+              />
+              <Line
+                type="monotone"
+                dataKey="totalDepositFee"
+                name="Total Deposit Fee"
+                stroke="#8a2be2"
+              />
+              <Line
+                type="monotone"
+                dataKey="totalWithdrawFee"
+                name="Total Withdraw Fee"
+                stroke="#82ca9d"
+              />
+            </LineChart>
+          </Col>
+        </Row>
+      )}
+      <Row gutter={16}>
+        <Col span={6}>
+          <Link to="/mybank-datalist">
+            <Card
+              title="Mybank Acc Status"
+              bordered={false}
+              hoverable={true}
+              className="card-hover"
+              style={{ textAlign: 'center' }}
+              onMouseEnter={() => {
+                this.style.transform = 'scale(100)'
+              }}
+              onMouseLeave={() => {
+                this.style.transform = 'scale(1)'
+              }}
+            >
+              <Meta
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '1.5rem',
+                  textAlign: 'center'
+                }}
+                description={
+                  <>
+                    <span
+                      style={{
+                        color: 'green'
+                      }}
+                    >
+                      {myBank[0]?.v_active}
+                    </span>
+                    <ArrowRightOutlined
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'blue'
+                      }}
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'red'
+                            }}
+                          >
+                            {myBank[0]?.v_inactive}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                  </>
+                }
+              />
+            </Card>
+          </Link>
+        </Col>
       </Row>
     </>
   )

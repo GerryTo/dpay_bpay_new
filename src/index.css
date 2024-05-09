@@ -6,3 +6,6 @@
 body {
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
+.card-hover:hover {
+  background-color: rgb(218, 219, 219);
+}

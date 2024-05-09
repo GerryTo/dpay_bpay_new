@@ -7,6 +7,7 @@ const MerchantBankAccount = () => {
   const handleChange = value => {
     console.log(`selected ${value}`)
   }
+  console.log(records)
   return (
     <>
       <Select
@@ -31,9 +32,9 @@ const MerchantBankAccount = () => {
         ]}
       />
       <Table
+        loading={isLoading}
         dataSource={records}
         columns={column}
-        loading={isLoading}
         scroll={{ x: 10 }}
       />
     </>

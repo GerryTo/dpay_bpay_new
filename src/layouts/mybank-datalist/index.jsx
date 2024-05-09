@@ -52,9 +52,9 @@ const MyBankDataList = () => {
         </Button>
       </Space>
       <Table
+        loading={isLoading}
         columns={column}
         dataSource={records}
-        loading={isLoading}
         scroll={{ x: 10 }}
       />
       {isEditModalOpen && (

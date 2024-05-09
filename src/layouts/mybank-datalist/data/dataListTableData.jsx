@@ -227,7 +227,6 @@ const dataListTableData = () => {
   return {
     column: tmpDataColumn,
     records: recordsToShow,
-    setIsLoading,
     isLoading,
     isEditModalOpen,
     setIsEditModalOpen,

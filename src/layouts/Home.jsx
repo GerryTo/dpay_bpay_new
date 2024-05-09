@@ -1,7 +1,7 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import Sider from 'antd/es/layout/Sider'
 import { Content, Header } from 'antd/es/layout/layout'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { mockdataRoutes } from '../routes'
 import Title from 'antd/es/typography/Title'
 import { Link, Route, Routes } from 'react-router-dom'
@@ -12,9 +12,29 @@ const Home = () => {
     { title: 'Home' },
     { title: 'Dashboard ' }
   ])
+  const [systemTime, setSystemTime] = useState('')
+
   const {
     token: { colorBgContainer }
   } = theme.useToken()
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const currentTime = new Date().toLocaleString('en-US', {
+        timeZone: 'Asia/Singapore', // GMT+8
+        hour12: false,
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      })
+      setSystemTime(currentTime)
+    }, 1000)
+
+    return () => clearInterval(intervalId)
+  }, [])
 
   function HandlerMenu(value1, value2) {
     if (value2) {
@@ -31,20 +51,23 @@ const Home = () => {
           position: 'sticky',
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'space-between',
           top: 0,
           zIndex: 1,
           background: colorBgContainer,
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+          padding: '0 16px'
         }}
       >
         <Title level={2}>DPAY</Title>
+        <div style={{ fontSize: '1.2rem', color: 'green' }}>{systemTime}</div>
       </Header>
       <Layout
         style={{
-          minHeight: '100vh',
+          minHeight: '100vh'
         }}
       >
-        <Sider 
+        <Sider
           width={300}
           theme="light"
           collapsible
@@ -101,7 +124,7 @@ const Home = () => {
                 padding: 24,
                 minHeight: 360,
                 borderRadius: '15px',
-                background: colorBgContainer,
+                background: colorBgContainer
               }}
             >
               <Routes>

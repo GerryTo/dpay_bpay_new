@@ -11,7 +11,6 @@ const MerchantMaster = () => {
   }
   let { column, records, isLoading, isEditModalOpen, setIsEditModalOpen } =
     dataMerchantMasterTableData()
-  console.log(records)
   return (
     <>
       <Button type="primary" onClick={addnewModal}>
