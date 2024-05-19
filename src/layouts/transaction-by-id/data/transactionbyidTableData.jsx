@@ -1,29 +1,68 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TransactionByAccountHistory from '../../../tmpdata/db.json'
-export const transactionbyidTableData = () => {
+import { apiGetTransactionByFutureId } from '../../../services/api'
+import { Button, Space } from 'antd'
+
+const transactionbyidTableData = () => {
+  const [records, setRecords] = useState([])
+  const [isLoading, setIsLoading] = useState([])
+  const [similar, setSimilar] = useState(false)
+  const [history, setHistory] = useState(false)
+
+  const handleSearch = value => {
+    getList(value, similar, history)
+  }
+
+  const handleSimilar = value => {
+    setSimilar(value.target.checked)
+  }
+
+  const handleHistory = value => {
+    setHistory(value.target.checked)
+  }
+
+  async function getList(futureid, similar, history) {
+    try {
+      setIsLoading(true)
+      let params = { futureid, isSimilar: similar, isHistory: history }
+      const { data } = await apiGetTransactionByFutureId(JSON.stringify(params))
+      if (data.status === 'success') {
+        setIsLoading(false)
+        setRecords(data.data)
+        console.log(data.data)
+      } else {
+        setIsLoading(false)
+        console.log(data.status)
+      }
+    } catch (e) {
+      setIsLoading(false)
+      console.log(e)
+    }
+  }
+
   let tmpDataColumns = [
     {
-      dataIndex: 'future_trx',
+      dataIndex: 'n_futuretrxid',
       title: 'Future Trx ID'
     },
     {
-      dataIndex: 'date',
+      dataIndex: 'd_insert',
       title: 'Date'
     },
     {
-      dataIndex: 'merchant_code',
+      dataIndex: 'v_merchantcode',
       title: 'Merchant Code'
     },
     {
-      dataIndex: 'status',
+      dataIndex: 'v_status',
       title: 'Status'
     },
     {
-      dataIndex: 'customer_code',
+      dataIndex: 'v_customercode',
       title: 'Customer Code'
     },
     {
-      dataIndex: 'bank',
+      dataIndex: 'v_bankcode',
       title: 'Bank'
     },
     {
@@ -35,32 +74,32 @@ export const transactionbyidTableData = () => {
       title: 'Credit'
     },
     {
-      dataIndex: 'trans_type',
+      dataIndex: 'v_transactiontype',
       title: 'Trans Type'
     },
     {
-      dataIndex: 'status',
+      dataIndex: 'v_status',
       title: 'Status'
     },
     {
-      dataIndex: 'callback_status',
+      dataIndex: 'v_merchantcallbackresponse',
       title: 'Callback Status'
     },
     {
-      dataIndex: 'fee',
+      dataIndex: 'n_fee',
       width: '25%',
       title: 'Fee'
     },
     {
-      dataIndex: 'notes',
+      dataIndex: 'v_notes',
       title: 'Notes'
     },
     {
-      dataIndex: 'notes_2',
+      dataIndex: 'v_notes2',
       title: 'Notes 2'
     },
     {
-      dataIndex: 'notes_3',
+      dataIndex: 'v_notes3',
       title: 'Notes 3'
     },
     {
@@ -72,15 +111,15 @@ export const transactionbyidTableData = () => {
       title: 'Sms Agent'
     },
     {
-      dataIndex: 'trans_id',
+      dataIndex: 'v_transactionid',
       title: 'Trans ID'
     },
     {
-      dataIndex: 'alias',
+      dataIndex: 'v_dstaccountname',
       title: 'Alias'
     },
     {
-      dataIndex: 'acc_source',
+      dataIndex: 'v_accountno',
       title: 'Acc Source'
     },
     {
@@ -88,11 +127,11 @@ export const transactionbyidTableData = () => {
       title: 'Acc Source Name'
     },
     {
-      dataIndex: 'acc_dest',
+      dataIndex: 'v_dstbankaccountno',
       title: 'Acc Dest'
     },
     {
-      dataIndex: 'acc_dest_name',
+      dataIndex: 'v_dstbankaccountname',
       title: 'Acc Dest Name'
     },
     {
@@ -108,17 +147,34 @@ export const transactionbyidTableData = () => {
       title: 'Receipt ID'
     },
     {
-      dataIndex: 'memo',
+      dataIndex: 'v_memo',
       title: 'Memo'
     },
     {
       dataIndex: 'action',
-      title: 'Action'
+      title: 'Action',
+      render: record => (
+        <>
+          <Space direction="horizontal">
+            <Button onClick="">Edit</Button>
+            <Button danger onClick="">
+              Fail
+            </Button>
+            <Button type="primary" onClick="">
+              Success
+            </Button>
+          </Space>
+        </>
+      )
     }
   ]
   return {
     columns: tmpDataColumns,
-    records: TransactionByAccountHistory
+    records,
+    isLoading,
+    handleSearch,
+    handleSimilar,
+    handleHistory
   }
 }
 

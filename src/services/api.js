@@ -54,6 +54,32 @@ export function apiGetMyBankActive() {
   }
 }
 
+export function apiGetDeposit() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/dashboard/deposit',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetWithdraw() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/dashboard/withdraw',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
 export function apiGetMyBankBalance() {
   try {
     const response = axios({
@@ -177,6 +203,32 @@ export function apiGetMerchantAcc(params) {
       method: 'post',
       url: BASEURL + '/merchant/merchant-bank-account',
       data: params
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetTransactionByFutureId(params) {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/transaction/list',
+      data: params
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
+export function apiGetAppiumAccount() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/crawler/status',
+      data: {}
     })
     return response
   } catch (err) {

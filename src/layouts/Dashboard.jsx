@@ -1,7 +1,12 @@
 import { Card, Col, DatePicker, Row, Space, Typography } from 'antd'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
-import { apiGetDashboard, apiGetMyBankActive } from '../services/api'
+import {
+  apiGetDashboard,
+  apiGetDeposit,
+  apiGetMyBankActive,
+  apiGetWithdraw
+} from '../services/api'
 import Meta from 'antd/es/card/Meta'
 import {
   LineChart,
@@ -22,6 +27,8 @@ const Dashboard = () => {
   const [records, setRecords] = useState([])
   const [chartData, setChartData] = useState([])
   const [myBank, setMyBank] = useState([])
+  const [deposit, setDeposit] = useState([])
+  const [withdraw, setWithdraw] = useState([])
   const defValue = dayjs()
   const formatCurrency = value => {
     return new Intl.NumberFormat('en-MY', {
@@ -36,7 +43,13 @@ const Dashboard = () => {
     getMyBankActive()
   }, [])
   useEffect(() => {
+    getDeposit()
+  }, [])
+  useEffect(() => {
     getData([defValue, defValue])
+  }, [])
+  useEffect(() => {
+    getWithdraw()
   }, [])
 
   async function getData(date) {
@@ -132,6 +145,35 @@ const Dashboard = () => {
       console.log(e)
     }
   }
+
+  async function getDeposit() {
+    try {
+      const { data } = await apiGetDeposit()
+      const { status } = data
+      if (status === 'success') {
+        setDeposit(data.data)
+      } else {
+        console.log(status)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  async function getWithdraw() {
+    try {
+      const { data } = await apiGetWithdraw()
+      const { status } = data
+      if (status === 'success') {
+        setWithdraw(data.data)
+      } else {
+        console.log(status)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
   return (
     <>
       <Title level={4}>Dashboard</Title>
@@ -347,6 +389,204 @@ const Dashboard = () => {
                             }}
                           >
                             {myBank[0]?.v_inactive}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                  </>
+                }
+              />
+            </Card>
+          </Link>
+        </Col>
+        <Col span={6}>
+          <Link to="/deposit-pending">
+            <Card
+              title="Deposit"
+              bordered={false}
+              hoverable={true}
+              className="card-hover"
+              style={{ textAlign: 'center' }}
+              onMouseEnter={() => {
+                this.style.transform = 'scale(100)'
+              }}
+              onMouseLeave={() => {
+                this.style.transform = 'scale(1)'
+              }}
+            >
+              <Meta
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '1.5rem',
+                  textAlign: 'center'
+                }}
+                description={
+                  <>
+                    <span
+                      style={{
+                        color: 'green'
+                      }}
+                    >
+                      {deposit[0]?.v_success}
+                    </span>
+                    <ArrowRightOutlined
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'blue'
+                      }}
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'orange'
+                            }}
+                          >
+                            {deposit[0]?.v_pending}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'red'
+                            }}
+                          >
+                            {deposit[0]?.v_failed}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                  </>
+                }
+              />
+            </Card>
+          </Link>
+        </Col>
+        <Col span={6}>
+          <Link to="/withdraw-list">
+            <Card
+              title="Withdraw"
+              bordered={false}
+              hoverable={true}
+              className="card-hover"
+              style={{ textAlign: 'center' }}
+              onMouseEnter={() => {
+                this.style.transform = 'scale(100)'
+              }}
+              onMouseLeave={() => {
+                this.style.transform = 'scale(1)'
+              }}
+            >
+              <Meta
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '1.5rem',
+                  textAlign: 'center'
+                }}
+                description={
+                  <>
+                    <span
+                      style={{
+                        color: 'green'
+                      }}
+                    >
+                      {withdraw[0]?.v_success}
+                    </span>
+                    <ArrowRightOutlined
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'blue'
+                      }}
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'orange'
+                            }}
+                          >
+                            {withdraw[0]?.v_pending}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'red'
+                            }}
+                          >
+                            {withdraw[0]?.v_failed}
                           </span>
                           <ArrowRightOutlined
                             style={{
