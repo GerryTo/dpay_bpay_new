@@ -81,14 +81,8 @@ const dataCrawlerStatusTableData = () => {
     },
     {
       title: 'Status',
-      dataIndex: 'n_status',
-      key: 'n_status',
-      render: record => {
-        if (record === '-1') return 'ERROR'
-        else if (record === '0') return 'OFFLINE'
-        else if (record === '1') return 'READY'
-        else if (record === '2') return 'PROCCESS'
-      }
+      dataIndex: 'v_status',
+      key: 'v_status'
     },
     {
       title: 'Heart Beat',

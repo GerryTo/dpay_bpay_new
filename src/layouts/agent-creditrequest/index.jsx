@@ -19,6 +19,7 @@ const AgentCreditRequest = () => {
         columns={column}
         loading={isLoading}
         scroll={{ x: 10 }}
+        footer={() => `Total Rows : ${records.length}`}
       />
     </>
   )

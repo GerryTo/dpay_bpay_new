@@ -56,6 +56,7 @@ const MyBankDataList = () => {
         columns={column}
         dataSource={records}
         scroll={{ x: 10 }}
+        footer={() => `Total Rows : ${records.length}`}
       />
       {isEditModalOpen && (
         <ModalEdit

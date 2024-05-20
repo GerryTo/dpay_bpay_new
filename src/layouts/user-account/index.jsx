@@ -41,6 +41,7 @@ const Account = () => {
         columns={columns}
         loading={isLoading}
         scroll={{ x: 10 }}
+        footer={() => `Total Rows : ${records.length}`}
       />
       <ModalAccount
         isModalVisible={isModalVisible}

@@ -2,6 +2,7 @@ import { Card, Col, DatePicker, Row, Space, Typography } from 'antd'
 import dayjs from 'dayjs'
 import { useEffect, useState } from 'react'
 import {
+  apiGetCrawler,
   apiGetDashboard,
   apiGetDeposit,
   apiGetMyBankActive,
@@ -29,6 +30,7 @@ const Dashboard = () => {
   const [myBank, setMyBank] = useState([])
   const [deposit, setDeposit] = useState([])
   const [withdraw, setWithdraw] = useState([])
+  const [crawler, setCrawler] = useState([])
   const defValue = dayjs()
   const formatCurrency = value => {
     return new Intl.NumberFormat('en-MY', {
@@ -50,6 +52,9 @@ const Dashboard = () => {
   }, [])
   useEffect(() => {
     getWithdraw()
+  }, [])
+  useEffect(() => {
+    getCrawler()
   }, [])
 
   async function getData(date) {
@@ -174,6 +179,19 @@ const Dashboard = () => {
     }
   }
 
+  async function getCrawler() {
+    try {
+      const { data } = await apiGetCrawler()
+      const { status } = data
+      if (status === 'success') {
+        setCrawler(data.data)
+      } else {
+        console.log(status)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
   return (
     <>
       <Title level={4}>Dashboard</Title>
@@ -587,6 +605,105 @@ const Dashboard = () => {
                             }}
                           >
                             {withdraw[0]?.v_failed}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                  </>
+                }
+              />
+            </Card>
+          </Link>
+        </Col>
+        <Col span={6}>
+          <Link to="/crawler-status">
+            <Card
+              title="Crawler"
+              bordered={false}
+              hoverable={true}
+              className="card-hover"
+              style={{ textAlign: 'center' }}
+              onMouseEnter={() => {
+                this.style.transform = 'scale(100)'
+              }}
+              onMouseLeave={() => {
+                this.style.transform = 'scale(1)'
+              }}
+            >
+              <Meta
+                style={{
+                  fontWeight: 'bold',
+                  fontSize: '1.5rem',
+                  textAlign: 'center'
+                }}
+                description={
+                  <>
+                    <span
+                      style={{
+                        color: 'green'
+                      }}
+                    >
+                      {crawler?.n_ready}
+                    </span>
+                    <ArrowRightOutlined
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: 'blue'
+                      }}
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'blue'
+                            }}
+                          >
+                            {crawler?.n_process}
+                          </span>
+                          <ArrowRightOutlined
+                            style={{
+                              position: 'absolute',
+                              right: 0,
+                              top: '50%',
+                              transform: 'translateY(-50%)',
+                              color: 'blue'
+                            }}
+                          />
+                        </>
+                      }
+                    />
+                    <Meta
+                      style={{
+                        fontWeight: 'bold',
+                        fontSize: '1.5rem',
+                        textAlign: 'center'
+                      }}
+                      description={
+                        <>
+                          <span
+                            style={{
+                              color: 'red'
+                            }}
+                          >
+                            {crawler?.n_offline}
                           </span>
                           <ArrowRightOutlined
                             style={{

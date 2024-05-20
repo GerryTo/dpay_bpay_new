@@ -80,6 +80,19 @@ export function apiGetWithdraw() {
   }
 }
 
+export function apiGetCrawler() {
+  try {
+    const response = axios({
+      method: 'post',
+      url: BASEURL + '/dashboard/crawler',
+      data: {}
+    })
+    return response
+  } catch (err) {
+    throw err
+  }
+}
+
 export function apiGetMyBankBalance() {
   try {
     const response = axios({

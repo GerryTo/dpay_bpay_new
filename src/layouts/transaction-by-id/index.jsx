@@ -31,7 +31,12 @@ const TransactionById = () => {
         <Checkbox onChange={handleSimilar}>Similar Search</Checkbox>
         <Checkbox onChange={handleHistory}>History</Checkbox>
       </Space>
-      <Table dataSource={records} columns={columns} scroll={{ x: 10 }} />
+      <Table
+        dataSource={records}
+        columns={columns}
+        scroll={{ x: 10 }}
+        footer={() => `Total Rows : ${records.length}`}
+      />
     </>
   )
 }

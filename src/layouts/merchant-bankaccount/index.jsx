@@ -36,6 +36,7 @@ const MerchantBankAccount = () => {
         dataSource={records}
         columns={column}
         scroll={{ x: 10 }}
+        footer={() => `Total Rows : ${records.length}`}
       />
     </>
   )
