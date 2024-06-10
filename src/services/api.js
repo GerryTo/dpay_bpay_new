@@ -227,7 +227,7 @@ export function apiGetTransactionByFutureId(params) {
   try {
     const response = axios({
       method: 'post',
-      url: BASEURL + '/transaction/list',
+      url: BASEURL + '/transaction/by-id',
       data: params
     })
     return response
